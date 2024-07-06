@@ -11,9 +11,11 @@ export const Home = () => {
       <Hero>
         <HomeNavigation />
       </Hero>
-      <Features />
-      <Introduction />
-      <Accordion data={homeAccordion} />
+      <main>
+        <Features />
+        <Introduction />
+        <Accordion data={homeAccordion} />
+      </main>
     </div>
   );
 };
