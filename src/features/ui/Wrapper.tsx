@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import twMerge from "clsx";
 
-type WrapperType = "primary" | "typography";
+type WrapperType = "primary" | "typography" | "features";
 
 type WrapperProps = {
   children: ReactNode;
@@ -14,6 +14,7 @@ export const Wrapper = ({ children, type = "primary" }: WrapperProps) => {
   const modifier: Record<WrapperType, string> = {
     primary: "max-w-6xl",
     typography: "max-w-xl md:max-w-6xl",
+    features: "max-w-xl md:max-w-6xl",
   };
 
   const className = twMerge(base, modifier[type]);
