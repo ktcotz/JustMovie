@@ -11,7 +11,7 @@ export const Logo = () => {
         height={27}
         title="Just Movie"
       />
-      <span className="text-red-500 uppercase text-xl">Just Movie</span>
+      <span className="text-xl uppercase text-red-500">Just Movie</span>
     </CustomLink>
   );
 };
