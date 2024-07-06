@@ -18,7 +18,7 @@ export const CustomLink = ({
 
   const modifier: Record<CustomLinkType, string> = {
     primary:
-      "bg-secondary text-slate-950 px-4 py-2 hover:bg-red-500 transition md:px-8",
+      "bg-secondary text-slate-950 px-4 py-2 hover:bg-red-500 transition md:px-8 focus:outline-none focus:ring focus:ring-red-500 focus:ring-offset-1 focus:ring-offset-primary",
     logo: "flex gap-4 items-center justify-center",
   };
 

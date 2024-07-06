@@ -10,6 +10,9 @@ export default {
       colors: {
         primary: "#FC4747",
       },
+      ringOffsetColor: {
+        primary: "#10141E",
+      },
     },
   },
   plugins: [],

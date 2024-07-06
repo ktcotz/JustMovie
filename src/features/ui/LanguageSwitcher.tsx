@@ -1,6 +1,6 @@
 export const LanguageSwitcher = () => {
   return (
-    <div className="relative bg-slate-900 text-slate-50 border border-slate-50 rounded-sm">
+    <div className="relative bg-slate-900 text-slate-50 border">
       <img
         src="./images/icon-translate.svg"
         alt=""
@@ -14,7 +14,7 @@ export const LanguageSwitcher = () => {
       <select
         name="language"
         id="language"
-        className="px-10 py-2 bg-transparent text-lg"
+        className="px-10 py-2 bg-transparent text-lg focus:outline-none focus:ring focus:ring-slate-50 rounded-sm transition"
       >
         <option value="pl">Polski</option>
         <option value="en">English</option>
