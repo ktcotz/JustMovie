@@ -1,3 +1,16 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { RouterRoutes } from "./types/routes";
+import { Home } from "./pages/Home";
+import { NotFound } from "./pages/NotFound";
+
+const router = createBrowserRouter([
+  {
+    path: RouterRoutes.HOME,
+    element: <Home />,
+    errorElement: <NotFound />,
+  },
+]);
+
 export const App = () => {
-  return <h1 className="text-5xl text-red-500">Hi icy!</h1>;
+  return <RouterProvider router={router} />;
 };
