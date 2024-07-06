@@ -9,7 +9,7 @@ type HeroProps = {
 
 export const Hero = ({ children }: HeroProps) => {
   return (
-    <header className="relative mb-20 py-8">
+    <header className="relative mb-14 py-8 md:mb-32">
       {children}
       <Wrapper type="typography">
         <div className="grid place-items-center gap-4 md:grid-cols-2">

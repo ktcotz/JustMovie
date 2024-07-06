@@ -1,4 +1,5 @@
-import { Features } from "../features/ui/features/Features";
+import { Features } from "../features/screen/features/Features";
+import { Introduction } from "../features/screen/introduction/Introduction";
 import { Hero } from "../layout/Hero";
 import { HomeNavigation } from "../layout/HomeNavigation";
 
@@ -9,6 +10,7 @@ export const Home = () => {
         <HomeNavigation />
       </Hero>
       <Features />
+      <Introduction />
     </div>
   );
 };
