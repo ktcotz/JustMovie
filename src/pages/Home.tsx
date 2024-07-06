@@ -1,3 +1,5 @@
+import { Accordion } from "../features/accordion/Accordion";
+import { homeAccordion } from "../features/accordion/data";
 import { Features } from "../features/screen/features/Features";
 import { Introduction } from "../features/screen/introduction/Introduction";
 import { Hero } from "../layout/Hero";
@@ -11,6 +13,7 @@ export const Home = () => {
       </Hero>
       <Features />
       <Introduction />
+      <Accordion data={homeAccordion} />
     </div>
   );
 };

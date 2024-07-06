@@ -4,7 +4,7 @@ import { Wrapper } from "../../ui/Wrapper";
 export const Introduction = () => {
   return (
     <Wrapper type="typography">
-      <div className="grid place-items-center gap-4 md:grid-cols-2">
+      <div className="mb-20 grid place-items-center gap-4 md:mb-32 md:grid-cols-2">
         <picture className="order-1 md:-order-1">
           <source
             srcSet="./images/individual.png"
