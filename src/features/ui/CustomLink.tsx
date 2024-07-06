@@ -2,7 +2,7 @@ import { ReactNode } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import twMerge from "clsx";
 
-type CustomLinkType = "primary" | "logo";
+type CustomLinkType = "primary" | "logo" | "secondary";
 
 type CustomLinkProps = {
   children: ReactNode;
@@ -20,6 +20,8 @@ export const CustomLink = ({
     primary:
       "bg-secondary text-slate-950 px-4 py-2 hover:bg-red-500 transition md:px-8 focus:outline-none focus:ring focus:ring-red-500 focus:ring-offset-1 focus:ring-offset-primary",
     logo: "flex gap-4 items-center justify-center",
+    secondary:
+      "bg-slate-900 text-slate-50 px-4 py-2 hover:bg-slate-800 transition md:px-8 focus:outline-none focus:ring focus:ring-slate-800 focus:ring-offset-1 focus:ring-offset-primary",
   };
 
   const className = twMerge(base, type && modifier[type]);

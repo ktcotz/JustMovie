@@ -1,6 +1,6 @@
 export const LanguageSwitcher = () => {
   return (
-    <div className="relative border bg-slate-900 text-slate-50">
+    <div className="relative rounded-sm border bg-slate-900 text-slate-50">
       <img
         src="./images/icon-translate.svg"
         alt=""
