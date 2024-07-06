@@ -3,7 +3,7 @@ import { CustomLink } from "./CustomLink";
 
 export const Logo = () => {
   return (
-    <CustomLink to={RouterRoutes.HOME} >
+    <CustomLink to={RouterRoutes.HOME} type="logo">
       <img
         src="./images/logo.svg"
         alt="Just Movie"
@@ -11,6 +11,7 @@ export const Logo = () => {
         height={27}
         title="Just Movie"
       />
+      <span className="text-red-500 uppercase text-xl">Just Movie</span>
     </CustomLink>
   );
 };
