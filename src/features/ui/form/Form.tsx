@@ -8,10 +8,15 @@ import { FormSubmit } from "./FormSubmit";
 
 type FormProps = {
   children: ReactNode;
+  onSubmit: () => void;
 };
 
-export const Form = ({ children }: FormProps) => {
-  return <form className="mb-8 flex flex-col gap-4">{children}</form>;
+export const Form = ({ children, onSubmit }: FormProps) => {
+  return (
+    <form className="mb-8 flex flex-col gap-8" onSubmit={onSubmit}>
+      {children}
+    </form>
+  );
 };
 
 Form.Submit = FormSubmit;
