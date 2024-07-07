@@ -5,6 +5,8 @@ import { FormInputContainer } from "./FormInputContainer";
 import { FormItem } from "./FormItem";
 import { FormLabel } from "./FormLabel";
 import { FormSubmit } from "./FormSubmit";
+import { FormIcons } from "./FormIcons";
+import { FormIcon } from "./FormIcon";
 
 type FormProps = {
   children: ReactNode;
@@ -25,3 +27,5 @@ Form.Input = FormInput;
 Form.InputContainer = FormInputContainer;
 Form.Item = FormItem;
 Form.Error = FormError;
+Form.Icons = FormIcons;
+Form.Icon = FormIcon;
