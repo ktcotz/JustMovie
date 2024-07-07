@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useState } from "react";
+import { createContext, ReactNode, useCallback, useState } from "react";
 
 type FormContextState = {
   isPasswordShow: boolean;
@@ -14,9 +14,9 @@ type FormContextProviderProps = {
 export const FormContextProvider = ({ children }: FormContextProviderProps) => {
   const [isPasswordShow, setIsPasswordShow] = useState(false);
 
-  const togglePassword = () => {
+  const togglePassword = useCallback(() => {
     setIsPasswordShow((prevPasswordShowState) => !prevPasswordShowState);
-  };
+  }, []);
 
   return (
     <FormContext.Provider value={{ isPasswordShow, togglePassword }}>

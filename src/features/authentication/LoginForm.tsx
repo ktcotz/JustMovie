@@ -18,8 +18,6 @@ export const LoginForm = () => {
 
   const { isPasswordShow } = useFormContext();
 
-  console.log(isPasswordShow);
-
   const submitHandler = (data: LoginSchema) => {
     console.log(data);
     reset();
