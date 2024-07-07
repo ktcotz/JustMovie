@@ -1,9 +1,25 @@
-import { ReactNode } from "react";
+import { ButtonHTMLAttributes, ReactNode } from "react";
+import twMerge from "clsx";
+
+type ButtonType = "primary";
 
 type ButtonProps = {
   children: ReactNode;
+  modifier?: ButtonType;
 };
 
-export const Button = ({ children }: ButtonProps) => {
-  return <button>{children}</button>;
+export const Button = ({
+  children,
+  modifier = "primary",
+}: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
+  const base = "rounded-sm font-semibold";
+
+  const modifierObject: Record<ButtonType, string> = {
+    primary:
+      "bg-secondary text-slate-950 p-4 hover:bg-red-500 transition md:px-8 focus:outline-none focus:ring focus:ring-red-500 focus:ring-offset-1 focus:ring-offset-primary",
+  };
+
+  const className = twMerge(base, modifier && modifierObject[modifier]);
+
+  return <button className={className}>{children}</button>;
 };
