@@ -6,7 +6,7 @@ import { FormItem } from "./FormItem";
 import { FormLabel } from "./FormLabel";
 import { FormSubmit } from "./FormSubmit";
 import { FormIcons } from "./FormIcons";
-import { FormIcon } from "./FormIcon";
+import { FormTogglePassword } from "./FormTogglePassword";
 
 type FormProps = {
   children: ReactNode;
@@ -28,4 +28,4 @@ Form.InputContainer = FormInputContainer;
 Form.Item = FormItem;
 Form.Error = FormError;
 Form.Icons = FormIcons;
-Form.Icon = FormIcon;
+Form.TogglePassword = FormTogglePassword;

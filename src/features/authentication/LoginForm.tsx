@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { LoginFormSchema, LoginSchema } from "./LoginFormSchema";
 import { RouterRoutes } from "../../types/routes";
+import { useFormContext } from "../ui/form/context/useFormContext";
 
 export const LoginForm = () => {
   const {
@@ -14,6 +15,10 @@ export const LoginForm = () => {
   } = useForm<LoginSchema>({
     resolver: zodResolver(LoginFormSchema),
   });
+
+  const { isPasswordShow } = useFormContext();
+
+  console.log(isPasswordShow);
 
   const submitHandler = (data: LoginSchema) => {
     console.log(data);
@@ -41,17 +46,13 @@ export const LoginForm = () => {
           <Form.InputContainer>
             <Form.Input
               id="password"
-              type="password"
+              type={`${isPasswordShow ? "text" : "password"}`}
               required
               {...register("password")}
             />
             <Form.Label id="password">Password</Form.Label>
             <Form.Icons>
-              <Form.Icon
-                src="./images/icon-close-eye.svg"
-                alt=""
-                label="Show password"
-              />
+              <Form.TogglePassword />
             </Form.Icons>
           </Form.InputContainer>
           {errors?.password && (

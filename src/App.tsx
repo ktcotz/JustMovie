@@ -4,6 +4,7 @@ import { Home } from "./pages/Home";
 import { NotFound } from "./pages/NotFound";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
+import { FormContextProvider } from "./features/ui/form/context/FormContext";
 
 const router = createBrowserRouter([
   {
@@ -13,11 +14,19 @@ const router = createBrowserRouter([
   },
   {
     path: RouterRoutes.LOGIN,
-    element: <Login />,
+    element: (
+      <FormContextProvider>
+        <Login />
+      </FormContextProvider>
+    ),
   },
   {
     path: RouterRoutes.REGISTER,
-    element: <Register />,
+    element: (
+      <FormContextProvider>
+        <Register />
+      </FormContextProvider>
+    ),
   },
 ]);
 
