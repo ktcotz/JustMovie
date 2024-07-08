@@ -1,9 +1,11 @@
 import twMerge from "clsx";
+import { homeAccordion } from "./data";
+import { useTranslation } from "react-i18next";
 
 export type AccordionItemData = {
   id: number;
-  title: string;
-  description: string;
+  title: (typeof homeAccordion)[number]["title"];
+  description: (typeof homeAccordion)[number]["description"];
 };
 
 type AccordionItemProps = {
@@ -31,6 +33,8 @@ export const AccordionItem = ({
     isOpen ? "visible" : "invisible",
   );
 
+  const { t } = useTranslation();
+
   return (
     <li className="flex flex-col gap-1 rounded-sm">
       <button
@@ -40,14 +44,14 @@ export const AccordionItem = ({
         aria-controls={`accordion-sect-${id}`}
         aria-expanded={`${isOpen ? "true" : "false"}`}
       >
-        {title}
+        {t(title)}
       </button>
       <div
         className={hiddenClsx}
         id={`accordion-sect-${id}`}
         aria-labelledby={`accordion-btn-${id}`}
       >
-        <p>{description}</p>
+        <p>{t(description)}</p>
       </div>
     </li>
   );

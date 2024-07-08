@@ -6,7 +6,8 @@
   "links": {
     "start": "Get started",
     "more-info": "More information",
-    "log-in": "Log in"
+    "log-in": "Log in",
+    "watch-free": "Watch for free"
   },
   "features": {
     "work-title": "Works Worldwide",
@@ -17,5 +18,22 @@
     "free-description": "Welcome to instant gratification at its best. Watch now without any payment or subscription and end the search for free movie websites.",
     "device-title": "Device-Friendly",
     "device-description": "Stream the good stuff from your favorite devices including Apple, Android, Smart TVs and more."
+  },
+  "introduction": {
+    "title": "Watching for free has never been so easy",
+    "description": "Register on our website and we will guide you on your path, regardless of what type of device you use."
+  },
+  "accordion": {
+    "title": "Frequently Asked Questions",
+    "what-is-title": "What is JustMovie?",
+    "what-is-description": "Just Movie is a streaming service that allows users to enjoy a wide range of award-winning films, series, shows, anime and documentaries across thousands of internet-connected devices.",
+    "free-title": "Is Just Movie free?",
+    "free-description": "Of course, yes!",
+    "watch-title": "Where can I watch?",
+    "watch-description": "You can watch on any device, you just need to log in to our application.",
+    "kids-title": "Can children watch on JustMovie?",
+    "kids-description": "Yes, the website mainly supports young people and adults, but there is also a place for children.",
+    "author-title": "Who created JustMovie?",
+    "author-description": "JustMovie was created by ktcotz :)"
   }
 }

@@ -6,7 +6,8 @@
   "links": {
     "start": "Rozpocznij",
     "more-info": "Więcej informacji",
-    "log-in": "Zaloguj się"
+    "log-in": "Zaloguj się",
+    "watch-free": "Oglądaj za darmo"
   },
   "features": {
     "work-title": "Działa na całym świecie",
@@ -17,5 +18,22 @@
     "free-description": "Witamy w natychmiastowej satysfakcji w najlepszym wydaniu. Oglądaj teraz bez żadnych opłat ani subskrypcji i zakończ wyszukiwanie witryn z bezpłatnymi filmami.",
     "device-title": "Przyjazny dla urządzeń",
     "device-description": "Przesyłaj strumieniowo najlepsze treści ze swoich ulubionych urządzeń, w tym Apple, Android, Smart TV i innych."
+  },
+  "introduction": {
+    "title": "Oglądanie za darmo nigdy nie było takie łatwe",
+    "description": "Zarejestruj się w naszym serwisie a my dalej pokierujemy twoją ścieżką bez znaczenia z jakiego rodzaju urządzenia korzystasz."
+  },
+  "accordion": {
+    "title": "Często zadawane pytania",
+    "what-is-title": "Czym jest JustMovie?",
+    "what-is-description": "Just Movie to usługa przesyłania strumieniowego, dzięki której użytkownicy mogą korzystać z szerokiej oferty nagradzanych filmów, seriali, programów, anime oraz produkcji dokumentalnych za pośrednictwem tysięcy urządzeń połączonych z internetem.",
+    "free-title": "Czy Just Movie jest darmowe?",
+    "free-description": "W pełni tak.",
+    "watch-title": "Gdzie mogę oglądać?",
+    "watch-description": "Możesz oglądać na każdym urządzeniu, jedynie musisz się zalogować do naszej aplikacji.",
+    "kids-title": "Czy dzieci mogą oglądać na JustMovie?",
+    "kids-description": "Tak, serwis wspiera głównie młodzież oraz dorosłych, ale miejsce dla dzieci również się znajdzie.",
+    "author-title": "Kto stworzył JustMovie?",
+    "author-description": "JustMovie zostało stworzone przez ktcotz :)"
   }
 }

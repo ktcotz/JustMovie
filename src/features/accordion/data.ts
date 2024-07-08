@@ -1,30 +1,27 @@
 export const homeAccordion = [
   {
     id: 1,
-    title: "Czym jest JustMovie?",
-    description:
-      "Just Movie to usługa przesyłania strumieniowego, dzięki której użytkownicy mogą korzystać z szerokiej oferty nagradzanych filmów, seriali, programów, anime oraz produkcji dokumentalnych za pośrednictwem tysięcy urządzeń połączonych z internetem.",
+    title: "accordion.what-is-title",
+    description: "accordion.what-is-description",
   },
   {
     id: 2,
-    title: "Czy Just Movie jest darmowe?",
-    description: "W pełni tak.",
+    title: "accordion.free-title",
+    description: "accordion.free-description",
   },
   {
     id: 3,
-    title: "Gdzie mogę oglądać?",
-    description:
-      "Możesz oglądać na każdym urządzeniu, jedynie musisz się zalogować do naszej aplikacji.",
+    title: "accordion.watch-title",
+    description: "accordion.watch-description",
   },
   {
     id: 4,
-    title: "Czy dzieci mogą oglądać na JustMovie?",
-    description:
-      "Tak, serwis wspiera głównie młodzież oraz dorosłych, ale miejsce dla dzieci również się znajdzie.",
+    title: "accordion.kids-title",
+    description: "accordion.kids-description",
   },
   {
     id: 5,
-    title: "Kto stworzył JustMovie?",
-    description: "JustMovie zostało stworzone przez ktcotz :)",
+    title: "accordion.author-title",
+    description: "accordion.author-description",
   },
-];
+] as const;
