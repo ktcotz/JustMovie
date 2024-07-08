@@ -1,3 +1,21 @@
 {
-  "hello": "WITAJ ŚWIECIE!"
+  "hero": {
+    "title": "Filmy, serial, bez ograniczeń",
+    "description": "Oglądaj wszędzie i za darmo."
+  },
+  "links": {
+    "start": "Rozpocznij",
+    "more-info": "Więcej informacji",
+    "log-in": "Zaloguj się"
+  },
+  "features": {
+    "work-title": "Działa na całym świecie",
+    "work-description": "Żadna inna bezpłatna usługa przesyłania strumieniowego nie dostarcza większej ilości treści do i z większej liczby krajów na całym świecie.",
+    "no-limits-title": "Tysiące tytułów",
+    "no-limits-description": "Wybieraj spośród filmów, programów, filmów dokumentalnych o sporcie i muzyce, seriali AMC, telewizji na żywo i nie tylko.",
+    "free-title": "Całkowicie darmowe",
+    "free-description": "Witamy w natychmiastowej satysfakcji w najlepszym wydaniu. Oglądaj teraz bez żadnych opłat ani subskrypcji i zakończ wyszukiwanie witryn z bezpłatnymi filmami.",
+    "device-title": "Przyjazny dla urządzeń",
+    "device-description": "Przesyłaj strumieniowo najlepsze treści ze swoich ulubionych urządzeń, w tym Apple, Android, Smart TV i innych."
+  }
 }

@@ -1,3 +1,21 @@
 {
-  "hello": "HELLO WORLD!"
+  "hero": {
+    "title": "Movies, series, no limits",
+    "description": "Watch anywhere and for free."
+  },
+  "links": {
+    "start": "Get started",
+    "more-info": "More information",
+    "log-in": "Log in"
+  },
+  "features": {
+    "work-title": "Works Worldwide",
+    "work-description": "No other free streaming service delivers more content to and from more countries worldwide.",
+    "no-limits-title": "Thousand of titles",
+    "no-limits-description": "Choose from movies, shows, sports and music documentaries, AMC series, Live TV and more.",
+    "free-title": "Always 100% free",
+    "free-description": "Welcome to instant gratification at its best. Watch now without any payment or subscription and end the search for free movie websites.",
+    "device-title": "Device-Friendly",
+    "device-description": "Stream the good stuff from your favorite devices including Apple, Android, Smart TVs and more."
+  }
 }
