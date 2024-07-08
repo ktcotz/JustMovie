@@ -3,7 +3,7 @@ import { Form } from "../ui/form/Form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RouterRoutes } from "../../types/routes";
-import { RegisterFormSchema, RegisterSchema } from "./RegisterFormSchema";
+import { RegisterFormSchema, RegisterSchema } from "./schema/RegisterFormSchema";
 import { useFormContext } from "../ui/form/context/useFormContext";
 
 export const RegisterForm = () => {

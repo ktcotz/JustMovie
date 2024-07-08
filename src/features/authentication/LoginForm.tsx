@@ -2,7 +2,7 @@ import { CustomLink } from "../ui/CustomLink";
 import { Form } from "../ui/form/Form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { LoginFormSchema, LoginSchema } from "./LoginFormSchema";
+import { LoginFormSchema, LoginSchema } from "./schema/LoginFormSchema";
 import { RouterRoutes } from "../../types/routes";
 import { useFormContext } from "../ui/form/context/useFormContext";
 
@@ -59,11 +59,21 @@ export const LoginForm = () => {
         </Form.Item>
         <Form.Submit>Login to your account</Form.Submit>
       </Form>
+      <p className="mb-8 text-center text-sm text-red-400 transition-all">
+        Error
+      </p>
       <span className="mb-8 block h-[1px] w-full bg-slate-700">&nbsp;</span>
       <p className="text-center text-slate-50">
         Don't have an account?{" "}
         <CustomLink to={RouterRoutes.REGISTER} type="inline">
           Sign up
+        </CustomLink>
+      </p>
+      <p className="text-center text-slate-50">or</p>
+      <p className="text-center text-slate-50">
+        Forgot your password?{" "}
+        <CustomLink to={RouterRoutes.FORGOT_PASSWORD} type="inline">
+          Reset
         </CustomLink>
       </p>
     </div>

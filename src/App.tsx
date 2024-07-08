@@ -5,6 +5,7 @@ import { NotFound } from "./pages/NotFound";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { FormContextProvider } from "./features/ui/form/context/FormContext";
+import { ForgotPassword } from "./pages/ForgotPassword";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,14 @@ const router = createBrowserRouter([
     element: (
       <FormContextProvider>
         <Register />
+      </FormContextProvider>
+    ),
+  },
+  {
+    path: RouterRoutes.FORGOT_PASSWORD,
+    element: (
+      <FormContextProvider>
+        <ForgotPassword />
       </FormContextProvider>
     ),
   },
