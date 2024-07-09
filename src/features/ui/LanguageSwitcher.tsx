@@ -1,4 +1,12 @@
+import { useTranslation } from "react-i18next";
+
 export const LanguageSwitcher = () => {
+  const { i18n } = useTranslation();
+
+  const changeLanguage = (lang: string) => {
+    i18n.changeLanguage(lang);
+  };
+
   return (
     <div className="relative rounded-sm border bg-slate-900 text-slate-50">
       <img
@@ -15,6 +23,7 @@ export const LanguageSwitcher = () => {
         name="language"
         id="language"
         className="rounded-sm bg-transparent px-10 py-2 text-lg transition focus:outline-none focus:ring focus:ring-slate-50"
+        onChange={(e) => changeLanguage(e.target.value)}
       >
         <option value="pl">Polski</option>
         <option value="en">English</option>
