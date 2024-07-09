@@ -6,6 +6,7 @@ import { LoginFormSchema, LoginSchema } from "./schema/LoginFormSchema";
 import { RouterRoutes } from "../../types/routes";
 import { useFormContext } from "../ui/form/context/useFormContext";
 import { useTranslation } from "react-i18next";
+import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
 
 export const LoginForm = () => {
   const {
@@ -43,7 +44,11 @@ export const LoginForm = () => {
             />
             <Form.Label id="email">{t("forms.email-input-title")}</Form.Label>
           </Form.InputContainer>
-          {errors?.email && <Form.Error>{errors.email.message}</Form.Error>}
+          {errors?.email && (
+            <Form.Error>
+              {t(errors.email.message as ValidationErrorMessage)}
+            </Form.Error>
+          )}
         </Form.Item>
         <Form.Item>
           <Form.InputContainer>
@@ -61,7 +66,9 @@ export const LoginForm = () => {
             </Form.Icons>
           </Form.InputContainer>
           {errors?.password && (
-            <Form.Error>{errors.password.message}</Form.Error>
+            <Form.Error>
+              {t(errors.password.message as ValidationErrorMessage)}
+            </Form.Error>
           )}
         </Form.Item>
         <Form.Submit>{t("links.log-in")}</Form.Submit>

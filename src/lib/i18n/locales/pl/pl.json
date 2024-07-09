@@ -56,6 +56,9 @@
   },
   "validation": {
     "email-required": "Adres e-mail jest wymagany!",
-    "email-invalid": "Adres e-mail jest niepoprawny, zmień go!"
+    "email-invalid": "Adres e-mail jest niepoprawny, zmień go!",
+    "password-required": "Hasło jest wymagane!",
+    "password-min-length": "Hasło musi miec minimum 6 znaków.",
+    "password-not-match": "Hasła nie pasują."
   }
 }

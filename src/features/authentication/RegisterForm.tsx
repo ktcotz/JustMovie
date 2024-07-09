@@ -9,6 +9,7 @@ import {
 } from "./schema/RegisterFormSchema";
 import { useFormContext } from "../ui/form/context/useFormContext";
 import { useTranslation } from "react-i18next";
+import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
 
 export const RegisterForm = () => {
   const {
@@ -46,7 +47,11 @@ export const RegisterForm = () => {
             />
             <Form.Label id="email">{t("forms.email-input-title")}</Form.Label>
           </Form.InputContainer>
-          {errors?.email && <Form.Error>{errors.email.message}</Form.Error>}
+          {errors?.email && (
+            <Form.Error>
+              {t(errors.email.message as ValidationErrorMessage)}
+            </Form.Error>
+          )}
         </Form.Item>
         <Form.Item>
           <Form.InputContainer>
@@ -64,7 +69,9 @@ export const RegisterForm = () => {
             </Form.Icons>
           </Form.InputContainer>
           {errors?.password && (
-            <Form.Error>{errors.password.message}</Form.Error>
+            <Form.Error>
+              {t(errors.password.message as ValidationErrorMessage)}
+            </Form.Error>
           )}
         </Form.Item>
         <Form.Item>
@@ -80,7 +87,9 @@ export const RegisterForm = () => {
             </Form.Label>
           </Form.InputContainer>
           {errors?.confirmPassword && (
-            <Form.Error>{errors.confirmPassword.message}</Form.Error>
+            <Form.Error>
+              {t(errors.confirmPassword.message as ValidationErrorMessage)}
+            </Form.Error>
           )}
         </Form.Item>
         <Form.Submit>{t("links.register")}</Form.Submit>

@@ -56,6 +56,9 @@
   },
   "validation": {
     "email-required": "Email is required!",
-    "email-invalid": "Email is invalid, correct!"
+    "email-invalid": "Email is invalid, correct!",
+    "password-required": "Password is required!",
+    "password-min-length": "Password must be more than 6 characters.",
+    "password-not-match": "Passwords don't match."
   }
 }

@@ -3,18 +3,18 @@ import { z } from "zod";
 export const RegisterFormSchema = z
   .object({
     email: z
-      .string({ required_error: "Email is required!" })
-      .min(1, "Email is required!")
-      .email("Email is invalid!"),
+      .string({ required_error: "validation.email-required" })
+      .min(1, "validation.email-required")
+      .email("validation.email-invalid"),
     password: z
-      .string({ required_error: "Password is required!" })
-      .min(6, "Password must be more than 6 characters."),
+      .string({ required_error: "validation.password-required" })
+      .min(6, "validation.password-min-length"),
     confirmPassword: z
-      .string({ required_error: "Password is required!" })
-      .min(6, "Password must be more than 6 characters."),
+      .string({ required_error: "validation.password-required" })
+      .min(6, "validation.password-min-length"),
   })
   .refine((data) => data.password === data.confirmPassword, {
-    message: "Password don't match",
+    message: "validation.password-not-match",
     path: ["confirmPassword"],
   });
 
