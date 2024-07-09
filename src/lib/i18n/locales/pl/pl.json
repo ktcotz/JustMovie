@@ -53,5 +53,9 @@
     "not-register": "Nie masz jeszcze konta?",
     "forgot-password": "Zapomniałeś hasła?",
     "forgot-password-title": "Zmień hasło"
+  },
+  "validation": {
+    "email-required": "Adres e-mail jest wymagany!",
+    "email-invalid": "Adres e-mail jest niepoprawny, zmień go!"
   }
 }

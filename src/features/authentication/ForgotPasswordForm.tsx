@@ -7,6 +7,7 @@ import {
   ForgotSchema,
 } from "./schema/ForgotPasswordSchema";
 import { useTranslation } from "react-i18next";
+import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
 
 export const ForgotPasswordForm = () => {
   const {
@@ -25,6 +26,8 @@ export const ForgotPasswordForm = () => {
     reset();
   };
 
+  console.log(errors.email?.message);
+
   return (
     <div className="rounded-sm bg-slate-800 p-8">
       <h1 className="mb-10 text-2xl font-medium text-slate-50">
@@ -42,7 +45,12 @@ export const ForgotPasswordForm = () => {
             />
             <Form.Label id="email">{t("forms.email-input-title")}</Form.Label>
           </Form.InputContainer>
-          {errors?.email && <Form.Error>{errors.email.message}</Form.Error>}
+          s
+          {errors?.email && (
+            <Form.Error>
+              {t(errors.email.message as ValidationErrorMessage)}
+            </Form.Error>
+          )}
         </Form.Item>
         <Form.Submit>{t("links.reset-password")}</Form.Submit>
       </Form>

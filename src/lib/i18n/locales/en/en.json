@@ -53,5 +53,9 @@
     "not-register": "Don't have an account?",
     "forgot-password": "Forgot your password?",
     "forgot-password-title": "Change password"
+  },
+  "validation": {
+    "email-required": "Email is required!",
+    "email-invalid": "Email is invalid, correct!"
   }
 }
