@@ -7,7 +7,9 @@
     "start": "Rozpocznij",
     "more-info": "Więcej informacji",
     "log-in": "Zaloguj się",
-    "watch-free": "Oglądaj za darmo"
+    "watch-free": "Oglądaj za darmo",
+    "register": "Zarejestruj się",
+    "reset-password": "Zresetuj hasło"
   },
   "features": {
     "work-title": "Działa na całym świecie",
@@ -35,5 +37,21 @@
     "kids-description": "Tak, serwis wspiera głównie młodzież oraz dorosłych, ale miejsce dla dzieci również się znajdzie.",
     "author-title": "Kto stworzył JustMovie?",
     "author-description": "JustMovie zostało stworzone przez ktcotz :)"
+  },
+  "utils": {
+    "language-switcher-title": "Wybierz język: "
+  },
+  "forms": {
+    "toggle-password-label-hide": "Pokaż hasło",
+    "toggle-password-label-show": "Schowaj hasło",
+    "register-title": "Zarejestruj się",
+    "login-title": "Zaloguj się",
+    "email-input-title": "Adres e-mail",
+    "password-input-title": "Hasło",
+    "password-confirm-input-title": "Potwierdź hasło",
+    "already-register": "Już zarejestrowany?",
+    "not-register": "Nie masz jeszcze konta?",
+    "forgot-password": "Zapomniałeś hasła?",
+    "forgot-password-title": "Zmień hasło"
   }
 }

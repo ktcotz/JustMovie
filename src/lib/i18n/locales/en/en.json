@@ -7,7 +7,9 @@
     "start": "Get started",
     "more-info": "More information",
     "log-in": "Log in",
-    "watch-free": "Watch for free"
+    "watch-free": "Watch for free",
+    "register": "Register",
+    "reset-password": "Reset password"
   },
   "features": {
     "work-title": "Works Worldwide",
@@ -35,5 +37,21 @@
     "kids-description": "Yes, the website mainly supports young people and adults, but there is also a place for children.",
     "author-title": "Who created JustMovie?",
     "author-description": "JustMovie was created by ktcotz :)"
+  },
+  "utils": {
+    "language-switcher-title": "Choose language: "
+  },
+  "forms": {
+    "toggle-password-label-hide": "Hide password",
+    "toggle-password-label-show": "Show password",
+    "register-title": "Register",
+    "login-title": "Log in",
+    "email-input-title": "Email address",
+    "password-input-title": "Password",
+    "password-confirm-input-title": "Confirm password",
+    "already-register": "Already register?",
+    "not-register": "Don't have an account?",
+    "forgot-password": "Forgot your password?",
+    "forgot-password-title": "Change password"
   }
 }

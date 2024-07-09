@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 
 export const LanguageSwitcher = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
@@ -17,7 +17,7 @@ export const LanguageSwitcher = () => {
         className="absolute left-2 top-1/2 -translate-y-1/2 invert"
       />
       <label htmlFor="language" className="sr-only">
-        Choose language:
+        {t("utils.language-switcher-title")}
       </label>
       <select
         name="language"

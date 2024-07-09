@@ -3,8 +3,12 @@ import { Form } from "../ui/form/Form";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { RouterRoutes } from "../../types/routes";
-import { RegisterFormSchema, RegisterSchema } from "./schema/RegisterFormSchema";
+import {
+  RegisterFormSchema,
+  RegisterSchema,
+} from "./schema/RegisterFormSchema";
 import { useFormContext } from "../ui/form/context/useFormContext";
+import { useTranslation } from "react-i18next";
 
 export const RegisterForm = () => {
   const {
@@ -16,6 +20,8 @@ export const RegisterForm = () => {
     resolver: zodResolver(RegisterFormSchema),
   });
 
+  const { t } = useTranslation();
+
   const { isPasswordShow } = useFormContext();
 
   const submitHandler = (data: RegisterSchema) => {
@@ -25,7 +31,9 @@ export const RegisterForm = () => {
 
   return (
     <div className="rounded-sm bg-slate-800 p-8">
-      <h2 className="mb-10 text-2xl font-medium text-slate-50">Register</h2>
+      <h1 className="mb-10 text-2xl font-medium text-slate-50">
+        {t("forms.register-title")}
+      </h1>
       <Form onSubmit={handleSubmit(submitHandler)}>
         <Form.Item>
           <Form.InputContainer>
@@ -36,7 +44,7 @@ export const RegisterForm = () => {
               autoComplete="email"
               {...register("email")}
             />
-            <Form.Label id="email">Email address</Form.Label>
+            <Form.Label id="email">{t("forms.email-input-title")}</Form.Label>
           </Form.InputContainer>
           {errors?.email && <Form.Error>{errors.email.message}</Form.Error>}
         </Form.Item>
@@ -48,7 +56,9 @@ export const RegisterForm = () => {
               required
               {...register("password")}
             />
-            <Form.Label id="password">Password</Form.Label>
+            <Form.Label id="password">
+              {t("forms.password-input-title")}
+            </Form.Label>
             <Form.Icons>
               <Form.TogglePassword />
             </Form.Icons>
@@ -65,19 +75,21 @@ export const RegisterForm = () => {
               required
               {...register("confirmPassword")}
             />
-            <Form.Label id="confirmPassword">Confirm Password</Form.Label>
+            <Form.Label id="confirmPassword">
+              {t("forms.password-confirm-input-title")}
+            </Form.Label>
           </Form.InputContainer>
           {errors?.confirmPassword && (
             <Form.Error>{errors.confirmPassword.message}</Form.Error>
           )}
         </Form.Item>
-        <Form.Submit>Register</Form.Submit>
+        <Form.Submit>{t("links.register")}</Form.Submit>
       </Form>
       <span className="mb-8 block h-[1px] w-full bg-slate-700">&nbsp;</span>
       <p className="text-center text-slate-50">
-        Already register?{" "}
+        {t("forms.already-register")}{" "}
         <CustomLink to={RouterRoutes.LOGIN} type="inline">
-          Log in
+          {t("links.log-in")}
         </CustomLink>
       </p>
     </div>
