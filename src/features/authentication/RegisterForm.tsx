@@ -10,6 +10,7 @@ import {
 import { useFormContext } from "../ui/form/context/useFormContext";
 import { useTranslation } from "react-i18next";
 import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
+import { supabase } from "../../lib/supabase/supabase";
 
 export const RegisterForm = () => {
   const {
@@ -29,6 +30,8 @@ export const RegisterForm = () => {
     console.log(data);
     reset();
   };
+
+  console.log(supabase);
 
   return (
     <div className="rounded-sm bg-slate-800 p-8">

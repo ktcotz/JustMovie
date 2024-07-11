@@ -1,7 +1,7 @@
 import { AccordionItem, AccordionItemData } from "./AccordionItem";
 
 type AccordionListProps = {
-  data: AccordionItemData[];
+  data: readonly AccordionItemData[];
   currentOpen: number | null;
   toggleAccordion: (id: number) => void;
 };

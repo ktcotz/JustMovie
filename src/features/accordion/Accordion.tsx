@@ -5,7 +5,7 @@ import { AccordionList } from "./AccordionList";
 import { useTranslation } from "react-i18next";
 
 type AccordionProps = {
-  data: AccordionItemData[];
+  data: readonly AccordionItemData[];
 };
 
 export const Accordion = ({ data }: AccordionProps) => {
