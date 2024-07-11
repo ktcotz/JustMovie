@@ -12,7 +12,7 @@ export const Button = ({
   children,
   modifier = "primary",
 }: ButtonProps & ButtonHTMLAttributes<HTMLButtonElement>) => {
-  const base = "rounded-sm font-semibold";
+  const base = "rounded-sm font-semibold flex items-center justify-center";
 
   const modifierObject: Record<ButtonType, string> = {
     primary:

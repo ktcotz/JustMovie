@@ -9,7 +9,8 @@
     "log-in": "Zaloguj się",
     "watch-free": "Oglądaj za darmo",
     "register": "Zarejestruj się",
-    "reset-password": "Zresetuj hasło"
+    "reset-password": "Zresetuj hasło",
+    "waiting": "Ładowanie..."
   },
   "features": {
     "work-title": "Działa na całym świecie",

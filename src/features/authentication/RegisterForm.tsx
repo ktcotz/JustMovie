@@ -10,7 +10,8 @@ import {
 import { useFormContext } from "../ui/form/context/useFormContext";
 import { useTranslation } from "react-i18next";
 import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
-import { supabase } from "../../lib/supabase/supabase";
+import { useRegister } from "./mutations/useRegister";
+import { Spinner } from "../ui/Spinner";
 
 export const RegisterForm = () => {
   const {
@@ -21,17 +22,20 @@ export const RegisterForm = () => {
   } = useForm<RegisterSchema>({
     resolver: zodResolver(RegisterFormSchema),
   });
-
+  const { signup, signupError, isRegistering } = useRegister();
   const { t } = useTranslation();
-
   const { isPasswordShow } = useFormContext();
 
-  const submitHandler = (data: RegisterSchema) => {
-    console.log(data);
-    reset();
+  const submitHandler = ({ email, password }: RegisterSchema) => {
+    signup(
+      { email, password },
+      {
+        onSuccess: () => {
+          reset();
+        },
+      },
+    );
   };
-
-  console.log(supabase);
 
   return (
     <div className="rounded-sm bg-slate-800 p-8">
@@ -95,8 +99,15 @@ export const RegisterForm = () => {
             </Form.Error>
           )}
         </Form.Item>
-        <Form.Submit>{t("links.register")}</Form.Submit>
+        <Form.Submit>
+          {isRegistering ? <Spinner /> : t("links.register")}
+        </Form.Submit>
       </Form>
+      {signupError && (
+        <p className="mb-8 text-center text-sm text-red-400 transition-all">
+          {signupError.message}
+        </p>
+      )}
       <span className="mb-8 block h-[1px] w-full bg-slate-700">&nbsp;</span>
       <p className="text-center text-slate-50">
         {t("forms.already-register")}{" "}
