@@ -4,4 +4,4 @@ REJESTRACJA UŻYTKOWNIKÓW.
 
 - Odpowiednie błędy.
 - Loadingi. <- ZROBIONE ->
-- Informacje zwrotne czy sukces czy nie.
+- Informacje zwrotne czy sukces czy nie. <- ZROBIONE ->

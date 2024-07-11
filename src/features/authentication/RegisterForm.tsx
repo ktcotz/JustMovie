@@ -12,6 +12,7 @@ import { useTranslation } from "react-i18next";
 import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
 import { useRegister } from "./mutations/useRegister";
 import { Spinner } from "../ui/Spinner";
+import { useNavigate } from "react-router";
 
 export const RegisterForm = () => {
   const {
@@ -25,12 +26,14 @@ export const RegisterForm = () => {
   const { signup, signupError, isRegistering } = useRegister();
   const { t } = useTranslation();
   const { isPasswordShow } = useFormContext();
+  const navigate = useNavigate();
 
   const submitHandler = ({ email, password }: RegisterSchema) => {
     signup(
       { email, password },
       {
         onSuccess: () => {
+          navigate(RouterRoutes.LOGIN);
           reset();
         },
       },
