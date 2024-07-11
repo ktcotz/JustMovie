@@ -14,3 +14,13 @@ type ValidationTranslationKeys = FlattenTranslations<
 
 export type ValidationErrorMessage =
   ValidationTranslationKeys[keyof ValidationTranslationKeys];
+
+type SupabaseTranslations = (typeof resources)["pl"]["translation"]["supabase"];
+
+type SupabaseTranslationsKeys = FlattenTranslations<
+  SupabaseTranslations,
+  "supabase."
+>;
+
+export type SupabaseErrorMessage =
+  SupabaseTranslationsKeys[keyof SupabaseTranslationsKeys];
