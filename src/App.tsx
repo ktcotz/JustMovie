@@ -7,6 +7,7 @@ import { Register } from "./pages/Register";
 import { FormContextProvider } from "./features/ui/form/context/FormContext";
 import { ForgotPassword } from "./pages/ForgotPassword";
 import { Dashboard } from "./pages/Dashboard";
+import { ProtectedRoute } from "./features/ui/ProtectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -40,7 +41,11 @@ const router = createBrowserRouter([
   },
   {
     path: RouterRoutes.DASHBOARD,
-    element: <Dashboard />,
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
   },
 ]);
 
