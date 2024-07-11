@@ -43,8 +43,10 @@ export class CustomError extends Error {
   private invalidUserCredentials() {
     const isUnconfirmed = this.message.includes("not confirmed");
 
-    return isUnconfirmed
-      ? ("supabase.not-confirmed" as const)
-      : ("supabase.invalid-user-credentials" as const);
+    if (isUnconfirmed) {
+      return "supabase.not-confirmed" as const;
+    }
+
+    return "supabase.invalid-user-credentials" as const;
   }
 }
