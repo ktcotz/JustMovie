@@ -65,6 +65,7 @@
   "supabase": {
     "rate-limiting": "Za duża ilość zapytań. Spróbuj ponownie później.",
     "user-already-registered": "Użytkownik z takim emailem istnieje już w naszej bazie.",
-    "no-expected": "Niespodziewany error, spróbuj ponownie za chwilę!"
+    "no-expected": "Niespodziewany error, spróbuj ponownie za chwilę!",
+    "invalid-user-credentials": "Niepoprawne dane logowania!"
   }
 }

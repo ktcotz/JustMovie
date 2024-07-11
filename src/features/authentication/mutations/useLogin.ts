@@ -1,20 +1,20 @@
 import { useMutation } from "@tanstack/react-query";
-import { registerUser } from "../services/services";
+import { loginUser } from "../services/services";
 import { CustomError } from "../../../utils/CustomError";
 import { useNavigate } from "react-router";
 import { RouterRoutes } from "../../../types/routes";
 
-export const useRegister = () => {
+export const useLogin = () => {
   const navigate = useNavigate();
 
   const {
-    mutate: signup,
-    isPending: isRegistering,
-    error: signupError,
+    mutate: login,
+    isPending: isLogin,
+    error: loginError,
   } = useMutation({
-    mutationFn: registerUser,
+    mutationFn: loginUser,
     onSuccess: () => {
-      navigate(RouterRoutes.LOGIN);
+      navigate(RouterRoutes.DASHBOARD);
     },
 
     onError: (error: CustomError) => {
@@ -22,5 +22,5 @@ export const useRegister = () => {
     },
   });
 
-  return { signup, isRegistering, signupError } as const;
+  return { login, isLogin, loginError } as const;
 };

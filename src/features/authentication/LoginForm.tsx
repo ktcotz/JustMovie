@@ -7,6 +7,8 @@ import { RouterRoutes } from "../../types/routes";
 import { useFormContext } from "../ui/form/context/useFormContext";
 import { useTranslation } from "react-i18next";
 import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
+import { useLogin } from "./mutations/useLogin";
+import { Spinner } from "../ui/Spinner";
 
 export const LoginForm = () => {
   const {
@@ -17,14 +19,18 @@ export const LoginForm = () => {
   } = useForm<LoginSchema>({
     resolver: zodResolver(LoginFormSchema),
   });
-
+  const { login, isLogin, loginError } = useLogin();
   const { t } = useTranslation();
-
   const { isPasswordShow } = useFormContext();
-
-  const submitHandler = (data: LoginSchema) => {
-    console.log(data);
-    reset();
+  const submitHandler = ({ email, password }: LoginSchema) => {
+    login(
+      { email, password },
+      {
+        onSuccess: () => {
+          reset();
+        },
+      },
+    );
   };
 
   return (
@@ -71,11 +77,13 @@ export const LoginForm = () => {
             </Form.Error>
           )}
         </Form.Item>
-        <Form.Submit>{t("links.log-in")}</Form.Submit>
+        <Form.Submit>{isLogin ? <Spinner /> : t("links.log-in")}</Form.Submit>
       </Form>
-      <p className="mb-8 text-center text-sm text-red-400 transition-all">
-        Error
-      </p>
+      {loginError && (
+        <p className="mb-8 text-center text-sm text-red-400 transition-all">
+          {t(loginError.generateError())}
+        </p>
+      )}
       <span className="mb-8 block h-[1px] w-full bg-slate-700">&nbsp;</span>
       <p className="mb-2 text-center text-slate-50">
         {t("forms.not-register")}{" "}
