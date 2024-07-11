@@ -66,6 +66,7 @@
     "rate-limiting": "To much request. Try again later.",
     "user-already-registered": "User with provided email is already registered.",
     "no-expected": "Unexpected error, try again later!",
-    "invalid-user-credentials": "Invalid user credentials!"
+    "invalid-user-credentials": "Invalid user credentials!",
+    "not-confirmed": "You haven't confirmed your account, check your email."
   }
 }
