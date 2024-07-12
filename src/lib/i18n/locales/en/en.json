@@ -67,6 +67,7 @@
     "user-already-registered": "User with provided email is already registered.",
     "no-expected": "Unexpected error, try again later!",
     "invalid-user-credentials": "Invalid user credentials!",
-    "not-confirmed": "You haven't confirmed your account, check your email."
+    "not-confirmed": "You haven't confirmed your account, check your email.",
+    "forgot-toast": "Check your mailbox and follow the steps!"
   }
 }

@@ -67,6 +67,7 @@
     "user-already-registered": "Użytkownik z takim emailem istnieje już w naszej bazie.",
     "no-expected": "Niespodziewany error, spróbuj ponownie za chwilę!",
     "invalid-user-credentials": "Niepoprawne dane logowania!",
-    "not-confirmed": "Nie potwierdziłeś konta, zajrzyj na pocztę."
+    "not-confirmed": "Nie potwierdziłeś konta, zajrzyj na pocztę.",
+    "forgot-toast": "Sprawdź skrzynkę pocztową i podążaj za krokami!"
   }
 }

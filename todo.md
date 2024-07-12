@@ -1,11 +1,5 @@
 GŁÓWNE WAŻNE
 
-1. Resetowanie hasła.
-
-- Obsługa błędów.
-- I18n.
-- Jeżeli zresetuje się to nawiguj do logowania.
-
 2. Stworzenie generalnego dashboard.
 3. Stworzenie sidebar.
 

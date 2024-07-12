@@ -15,7 +15,7 @@ export const useForgotPassword = () => {
     mutationFn: forgotPassword,
 
     onSuccess: () => {
-      toast.success("Sprawdź skrzynkę pocztową i podążaj za krokami!");
+      toast.success(t("supabase.forgot-toast"));
     },
 
     onError: (error: CustomError) => {

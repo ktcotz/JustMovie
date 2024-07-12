@@ -72,6 +72,9 @@ export const App = () => {
             backgroundColor: "#10141E",
             color: "rgb(248,250,252)",
           },
+          success: {
+            duration: 3000,
+          },
         }}
         gutter={8}
       />
