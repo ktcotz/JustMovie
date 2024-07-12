@@ -1,4 +1,5 @@
 import { supabase } from "../../../lib/supabase/supabase";
+import { RouterRoutes } from "../../../types/routes";
 import { CustomError } from "../../../utils/CustomError";
 
 type UserCredentials = {
@@ -56,4 +57,38 @@ export const getUser = async () => {
   const user = data.session?.user;
 
   return user;
+};
+
+export const forgotPassword = async ({
+  email,
+}: Pick<UserCredentials, "email">) => {
+  const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
+    redirectTo: `http://localhost:5173${RouterRoutes.RESET_PASSWORD}`,
+  });
+
+  if (error) {
+    throw new CustomError({
+      message: error.message,
+      code: error.status,
+    });
+  }
+
+  return data;
+};
+
+export const updatePassword = async ({
+  password,
+}: Pick<UserCredentials, "password">) => {
+  const { data, error } = await supabase.auth.updateUser({
+    password,
+  });
+
+  if (error) {
+    throw new CustomError({
+      message: error.message,
+      code: error.status,
+    });
+  }
+
+  return data;
 };

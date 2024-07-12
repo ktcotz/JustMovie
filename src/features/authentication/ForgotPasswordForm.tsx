@@ -8,6 +8,8 @@ import {
 } from "./schema/ForgotPasswordSchema";
 import { useTranslation } from "react-i18next";
 import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
+import { useForgotPassword } from "./mutations/useForgotPassword";
+import { Spinner } from "../ui/Spinner";
 
 export const ForgotPasswordForm = () => {
   const {
@@ -19,14 +21,18 @@ export const ForgotPasswordForm = () => {
     resolver: zodResolver(ForgotPasswordSchema),
   });
 
+  const { forgot, isForgotLoading, forgotError } = useForgotPassword();
   const { t } = useTranslation();
-
-  const submitHandler = (data: ForgotSchema) => {
-    console.log(data);
-    reset();
+  const submitHandler = ({ email }: ForgotSchema) => {
+    forgot(
+      { email },
+      {
+        onSuccess: () => {
+          reset();
+        },
+      },
+    );
   };
-
-  console.log(errors.email?.message);
 
   return (
     <div className="rounded-sm bg-slate-800 p-8">
@@ -45,16 +51,21 @@ export const ForgotPasswordForm = () => {
             />
             <Form.Label id="email">{t("forms.email-input-title")}</Form.Label>
           </Form.InputContainer>
-          s
           {errors?.email && (
             <Form.Error>
               {t(errors.email.message as ValidationErrorMessage)}
             </Form.Error>
           )}
         </Form.Item>
-        <Form.Submit>{t("links.reset-password")}</Form.Submit>
+        <Form.Submit>
+          {isForgotLoading ? <Spinner /> : t("links.reset-password")}
+        </Form.Submit>
       </Form>
-      <p className="text-center text-sm text-red-400 transition-all">Error</p>
+      {forgotError && (
+        <p className="mb-8 text-center text-sm text-red-400 transition-all">
+          {t(forgotError.generateError())}
+        </p>
+      )}
     </div>
   );
 };

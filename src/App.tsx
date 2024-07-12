@@ -8,6 +8,8 @@ import { FormContextProvider } from "./features/ui/form/context/FormContext";
 import { ForgotPassword } from "./pages/ForgotPassword";
 import { Dashboard } from "./pages/Dashboard";
 import { ProtectedRoute } from "./features/ui/ProtectedRoute";
+import { ResetPassword } from "./pages/ResetPassword";
+import { Toaster } from "react-hot-toast";
 
 const router = createBrowserRouter([
   {
@@ -47,8 +49,32 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
   },
+  {
+    path: RouterRoutes.RESET_PASSWORD,
+    element: (
+      <FormContextProvider>
+        <ResetPassword />,
+      </FormContextProvider>
+    ),
+  },
 ]);
 
 export const App = () => {
-  return <RouterProvider router={router} />;
+  return (
+    <>
+      <RouterProvider router={router} />
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          style: {
+            maxWidth: "30rem",
+            textAlign: "center",
+            backgroundColor: "#10141E",
+            color: "rgb(248,250,252)",
+          },
+        }}
+        gutter={8}
+      />
+    </>
+  );
 };
