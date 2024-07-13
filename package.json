@@ -36,6 +36,7 @@
     "prettier": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.5",
     "react-anchor-link-smooth-scroll": "^1.0.12",
+    "react-dropzone": "^14.2.3",
     "react-hook-form": "^7.52.1",
     "react-hot-toast": "^2.4.1",
     "react-i18next": "^14.1.2",

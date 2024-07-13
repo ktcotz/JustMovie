@@ -67,7 +67,11 @@ const router = createBrowserRouter([
       },
       {
         path: RouterRoutes.DASHBOARD_USER_SETTINGS,
-        element: <DashboardUserSettings />,
+        element: (
+          <FormContextProvider>
+            <DashboardUserSettings />
+          </FormContextProvider>
+        ),
       },
     ],
   },

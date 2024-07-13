@@ -60,7 +60,10 @@
     "already-register": "Już zarejestrowany?",
     "not-register": "Nie masz jeszcze konta?",
     "forgot-password": "Zapomniałeś hasła?",
-    "forgot-password-title": "Zmień hasło"
+    "forgot-password-title": "Zmień hasło",
+    "name-input-title": "Imię",
+    "surname-input-title": "Nazwisko",
+    "user-submit-title": "Ustaw dane użytkownika"
   },
   "validation": {
     "email-required": "Adres e-mail jest wymagany!",
@@ -82,5 +85,10 @@
     "nav-movies": "Filmy",
     "nav-tv-series": "Seriale",
     "nav-bookmark": "Zakładki"
+  },
+  "settings": {
+    "title": "Ustawienia użytkownika",
+    "user-name": "Nieznajomy",
+    "set-name": "Ustaw imię i nazwisko"
   }
 }

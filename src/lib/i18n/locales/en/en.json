@@ -60,7 +60,10 @@
     "already-register": "Already register?",
     "not-register": "Don't have an account?",
     "forgot-password": "Forgot your password?",
-    "forgot-password-title": "Change password"
+    "forgot-password-title": "Change password",
+    "name-input-title": "Name",
+    "surname-input-title": "Surname",
+    "user-submit-title": "Set user data"
   },
   "validation": {
     "email-required": "Email is required!",
@@ -82,5 +85,10 @@
     "nav-movies": "Movies",
     "nav-tv-series": "TV Series",
     "nav-bookmark": "Bookmarks"
+  },
+  "settings": {
+    "title": "User settings",
+    "user-name": "Anonymous",
+    "set-name": "Set name and surname"
   }
 }

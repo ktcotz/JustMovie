@@ -8,7 +8,7 @@ export const FormInput = forwardRef<
     <input
       {...rest}
       ref={ref}
-      className="peer w-full rounded-md bg-slate-700 p-4 pr-14 text-slate-50 transition-all focus:outline-none focus:ring focus:ring-slate-700 focus:ring-offset-2 focus:ring-offset-slate-800"
+      className="peer w-full rounded-md bg-slate-700 p-3 pr-14 text-slate-50 transition-all focus:outline-none focus:ring focus:ring-slate-700 focus:ring-offset-2 focus:ring-offset-slate-800 md:p-4"
     />
   );
 });
