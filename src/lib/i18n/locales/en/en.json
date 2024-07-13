@@ -69,5 +69,11 @@
     "invalid-user-credentials": "Invalid user credentials!",
     "not-confirmed": "You haven't confirmed your account, check your email.",
     "forgot-toast": "Check your mailbox and follow the steps!"
+  },
+  "navigation": {
+    "nav-home": "Home",
+    "nav-movies": "Movies",
+    "nav-tv-series": "TV Series",
+    "nav-bookmark": "Bookmarks"
   }
 }

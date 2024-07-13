@@ -1,7 +1,11 @@
 import { RouterRoutes } from "../../types/routes";
 import { CustomLink } from "./CustomLink";
 
-export const Logo = () => {
+type LogoProps = {
+  shouldTextBeVisible?: boolean;
+};
+
+export const Logo = ({ shouldTextBeVisible = true }: LogoProps) => {
   return (
     <CustomLink to={RouterRoutes.HOME} type="logo">
       <img
@@ -11,7 +15,9 @@ export const Logo = () => {
         height={27}
         title="Just Movie"
       />
-      <span className="text-xl uppercase text-red-500">Just Movie</span>
+      {shouldTextBeVisible && (
+        <span className="text-xl uppercase text-red-500">Just Movie</span>
+      )}
     </CustomLink>
   );
 };

@@ -10,6 +10,9 @@ import { Dashboard } from "./pages/Dashboard";
 import { ProtectedRoute } from "./features/ui/ProtectedRoute";
 import { ResetPassword } from "./pages/ResetPassword";
 import { Toaster } from "react-hot-toast";
+import { DashboardMovies } from "./pages/DashboardMovies";
+import { DashboardTVSeries } from "./pages/DashboardTvSeries";
+import { DashboardBookmarks } from "./pages/DashboardBookmarks";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +51,20 @@ const router = createBrowserRouter([
         <Dashboard />
       </ProtectedRoute>
     ),
+    children: [
+      {
+        path: RouterRoutes.DASHBOARD_MOVIES,
+        element: <DashboardMovies />,
+      },
+      {
+        path: RouterRoutes.DASHBOARD_TV_SERIES,
+        element: <DashboardTVSeries />,
+      },
+      {
+        path: RouterRoutes.DASHBOARD_BOOKMARKS,
+        element: <DashboardBookmarks />,
+      },
+    ],
   },
   {
     path: RouterRoutes.RESET_PASSWORD,

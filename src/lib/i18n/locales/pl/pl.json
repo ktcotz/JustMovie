@@ -69,5 +69,11 @@
     "invalid-user-credentials": "Niepoprawne dane logowania!",
     "not-confirmed": "Nie potwierdziłeś konta, zajrzyj na pocztę.",
     "forgot-toast": "Sprawdź skrzynkę pocztową i podążaj za krokami!"
+  },
+  "navigation": {
+    "nav-home": "Strona główna",
+    "nav-movies": "Filmy",
+    "nav-tv-series": "Seriale",
+    "nav-bookmark": "Zakładki"
   }
 }

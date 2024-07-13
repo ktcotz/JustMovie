@@ -1,6 +1,7 @@
 GŁÓWNE WAŻNE
 
 2. Stworzenie generalnego dashboard.
+
 3. Stworzenie sidebar.
 
 - Responsywność.
