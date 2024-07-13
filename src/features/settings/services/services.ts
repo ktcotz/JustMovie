@@ -23,3 +23,19 @@ export const updateUserName = async ({
 
   return data;
 };
+
+export const getAllAvatars = async () => {
+  const { data, error } = await supabase.storage.from("avatars").list("", {
+    limit: 100,
+    offset: 0,
+    sortBy: { column: "name", order: "asc" },
+  });
+
+  if (error) {
+    throw new CustomError({
+      message: error.message,
+    });
+  }
+
+  return data;
+};

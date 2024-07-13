@@ -3,11 +3,17 @@ import { useGetUser } from "../authentication/mutations/useGetUser";
 import { Spinner } from "../ui/Spinner";
 import { useState } from "react";
 import { Button } from "../ui/Button";
+import { DefaultAvatars } from "./DefaultAvatars";
 
 export const UserChangeAvatar = () => {
   const { user, isLoading } = useGetUser();
 
   const [preview, setPreview] = useState<string | null>(null);
+
+  const setAvatarPreview = (url: string) => {
+    setPreview(url);
+  };
+
   const { getRootProps, getInputProps } = useDropzone({
     accept: {
       "image/*": [],
@@ -40,6 +46,7 @@ export const UserChangeAvatar = () => {
           />
         </aside>
       </section>
+      <DefaultAvatars onSetPreview={setAvatarPreview} />
       {preview && (
         <div className="flex items-center justify-center gap-4">
           <Button onClick={() => setPreview(null)} modifier="settings">
