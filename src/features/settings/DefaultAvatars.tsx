@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { supabaseUrl } from "../../lib/supabase/supabase";
 import { Button } from "../ui/Button";
 import { Spinner } from "../ui/Spinner";
@@ -9,16 +10,15 @@ type DefaultAvatarsProps = {
 
 export const DefaultAvatars = ({ onSetPreview }: DefaultAvatarsProps) => {
   const { avatars, isLoading } = useGetAvatars();
+  const { t } = useTranslation();
 
   if (isLoading) {
     return <Spinner />;
   }
 
-  console.log(avatars);
-
   return (
     <div>
-      <h2 className="mb-8">Skorzystaj z darmowych avatarów</h2>
+      <h2 className="mb-8">{t("settings.free-avatars")}</h2>
       <div className="flex max-w-96 flex-wrap gap-4">
         {avatars
           ?.filter((avatar) => avatar.metadata.size > 0)

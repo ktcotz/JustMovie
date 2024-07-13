@@ -1,18 +1,19 @@
 import { useDropzone } from "react-dropzone";
 import { useGetUser } from "../authentication/mutations/useGetUser";
-import { Spinner } from "../ui/Spinner";
 import { useState } from "react";
 import { Button } from "../ui/Button";
 import { DefaultAvatars } from "./DefaultAvatars";
 import { useUpdateAvatar } from "./mutations/useUpdateAvatar";
 import { supabaseUrl } from "../../lib/supabase/supabase";
+import { useTranslation } from "react-i18next";
 
 export const UserChangeAvatar = () => {
-  const { user, isLoading } = useGetUser();
+  const { user } = useGetUser();
 
   const [preview, setPreview] = useState<string | undefined>(undefined);
   const [updateAvatar, setUpdateAvatar] = useState<File | null>(null);
   const { update } = useUpdateAvatar();
+  const { t } = useTranslation();
 
   const setAvatarPreview = (url: string) => {
     setPreview(url);
@@ -36,17 +37,13 @@ export const UserChangeAvatar = () => {
     },
   });
 
-  if (isLoading) {
-    return <Spinner />;
-  }
-
   return (
     <>
-      <h2>Zmień avatar</h2>
+      <h2>{t("settings.update-avatar")}</h2>
       <section className="relative flex items-center justify-center rounded-md bg-slate-900 p-8 text-slate-300">
         <div {...getRootProps({ className: "dropzone" })}>
           <input {...getInputProps()} />
-          <p>Drag'n drop avatar image</p>
+          <p>{t("settings.dropzone-label")}</p>
         </div>
         <aside className="absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2">
           <img
@@ -62,10 +59,10 @@ export const UserChangeAvatar = () => {
       {preview && (
         <div className="flex items-center justify-center gap-4">
           <Button onClick={() => setPreview(undefined)} modifier="settings">
-            Nie zapisuj
+            {t("settings.not-save-avatar")}
           </Button>
           <Button modifier="settings" onClick={updateAvatarFn}>
-            Ustaw zdjęcie
+            {t("settings.save-avatar")}
           </Button>
         </div>
       )}

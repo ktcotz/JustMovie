@@ -19,7 +19,6 @@ const router = createBrowserRouter([
   {
     path: RouterRoutes.HOME,
     element: <Home />,
-    errorElement: <NotFound />,
   },
   {
     path: RouterRoutes.LOGIN,
@@ -82,6 +81,10 @@ const router = createBrowserRouter([
         <ResetPassword />,
       </FormContextProvider>
     ),
+  },
+  {
+    path: RouterRoutes.NOT_FOUND,
+    element: <NotFound />,
   },
 ]);
 

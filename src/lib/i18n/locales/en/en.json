@@ -91,6 +91,11 @@
     "title": "User settings",
     "user-name": "Anonymous",
     "set-name": "Set name and surname",
-    "update-password": "Update password"
+    "update-password": "Update password",
+    "update-avatar": "Change avatar",
+    "dropzone-label": "Drag'n drop avatar image",
+    "save-avatar": "Set avatar",
+    "not-save-avatar": "Reject",
+    "free-avatars": "Use a default avatars"
   }
 }

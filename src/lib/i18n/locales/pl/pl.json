@@ -91,6 +91,11 @@
     "title": "Ustawienia użytkownika",
     "user-name": "Nieznajomy",
     "set-name": "Ustaw imię i nazwisko",
-    "update-password": "Zmień hasło"
+    "update-password": "Zmień hasło",
+    "update-avatar": "Zmień avatar",
+    "dropzone-label": "Przeciągnij i upuść zdjęcie",
+    "save-avatar": "Ustaw avatara",
+    "not-save-avatar": "Nie zapisuj",
+    "free-avatars": "Skorzystaj z darmowych avatarów"
   }
 }
