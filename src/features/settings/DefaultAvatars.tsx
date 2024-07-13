@@ -14,29 +14,29 @@ export const DefaultAvatars = ({ onSetPreview }: DefaultAvatarsProps) => {
     return <Spinner />;
   }
 
+  console.log(avatars);
+
   return (
     <div>
       <h2 className="mb-8">Skorzystaj z darmowych avatarów</h2>
       <div className="flex max-w-96 flex-wrap gap-4">
-        {avatars?.map((avatar) => (
-          <Button
-            modifier="avatar"
-            onClick={() =>
-              onSetPreview(
-                `${supabaseUrl}/storage/v1/object/public/avatars/${avatar.name}`,
-              )
-            }
-          >
-            <img
-              key={avatar.id}
-              src={`${supabaseUrl}/storage/v1/object/public/avatars/${avatar.name}`}
-              alt={avatar.name}
-              width={48}
-              height={48}
-              className="h-12 w-12 rounded-full border-2 border-slate-50"
-            />
-          </Button>
-        ))}
+        {avatars
+          ?.filter((avatar) => avatar.metadata.size > 0)
+          .map((avatar) => {
+            const url = `${supabaseUrl}/storage/v1/object/public/avatars/${avatar.name}`;
+            return (
+              <Button modifier="avatar" onClick={() => onSetPreview(url)}>
+                <img
+                  key={avatar.id}
+                  src={url}
+                  alt={avatar.name}
+                  width={48}
+                  height={48}
+                  className="h-12 w-12 rounded-full border-2 border-slate-50"
+                />
+              </Button>
+            );
+          })}
       </div>
     </div>
   );

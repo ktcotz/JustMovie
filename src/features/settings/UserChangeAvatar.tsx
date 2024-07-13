@@ -4,14 +4,25 @@ import { Spinner } from "../ui/Spinner";
 import { useState } from "react";
 import { Button } from "../ui/Button";
 import { DefaultAvatars } from "./DefaultAvatars";
+import { useUpdateAvatar } from "./mutations/useUpdateAvatar";
+import { supabaseUrl } from "../../lib/supabase/supabase";
 
 export const UserChangeAvatar = () => {
   const { user, isLoading } = useGetUser();
 
-  const [preview, setPreview] = useState<string | null>(null);
+  const [preview, setPreview] = useState<string | undefined>(undefined);
+  const [updateAvatar, setUpdateAvatar] = useState<File | null>(null);
+  const { update } = useUpdateAvatar();
 
   const setAvatarPreview = (url: string) => {
     setPreview(url);
+  };
+
+  const updateAvatarFn = () => {
+    update({
+      avatarFile: updateAvatar,
+      bucket_default: preview?.startsWith(supabaseUrl) ? preview : "",
+    });
   };
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -20,6 +31,7 @@ export const UserChangeAvatar = () => {
     },
     onDrop: (files: File[]) => {
       const file = URL.createObjectURL(files[0]);
+      setUpdateAvatar(files[0]);
       setPreview(file);
     },
   });
@@ -49,10 +61,12 @@ export const UserChangeAvatar = () => {
       <DefaultAvatars onSetPreview={setAvatarPreview} />
       {preview && (
         <div className="flex items-center justify-center gap-4">
-          <Button onClick={() => setPreview(null)} modifier="settings">
+          <Button onClick={() => setPreview(undefined)} modifier="settings">
             Nie zapisuj
           </Button>
-          <Button modifier="settings">Ustaw zdjęcie</Button>
+          <Button modifier="settings" onClick={updateAvatarFn}>
+            Ustaw zdjęcie
+          </Button>
         </div>
       )}
     </>

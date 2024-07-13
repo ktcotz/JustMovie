@@ -4,8 +4,6 @@ GŁÓWNE WAŻNE
 
 3. Ustawienia usera (DRUGA KOLEJNOŚĆ.)
 
-- Zmiana nickname.
-- Zmiana hasła.
 - Zmiana avatara.
 
 OPCJONALNE
