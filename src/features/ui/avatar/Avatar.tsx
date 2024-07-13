@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "../Button";
 import { AvatarTooltip } from "./AvatarTooltip";
+import { useOnClickOutside } from "usehooks-ts";
 
 export const Avatar = () => {
+  const ref = useRef(null);
   const [showContent, setShowContent] = useState(false);
+
+  useOnClickOutside(ref, () => setShowContent(false));
 
   return (
     <>
-      <div className="relative">
+      <div className="relative" ref={ref}>
         <Button
           modifier="avatar"
           onClick={() => setShowContent((prevShowState) => !prevShowState)}

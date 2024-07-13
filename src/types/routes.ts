@@ -8,4 +8,5 @@ export enum RouterRoutes {
   DASHBOARD_MOVIES = "movies",
   DASHBOARD_TV_SERIES = "series",
   DASHBOARD_BOOKMARKS = "bookmarks",
+  DASHBOARD_USER_SETTINGS = "settings",
 }

@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import { MainNavigation } from "../layout/MainNavigation/MainNavigation";
+import { MainNavigation } from "../../layout/MainNavigation/MainNavigation";
 
 export const Dashboard = () => {
   return (

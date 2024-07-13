@@ -56,7 +56,7 @@ export const getUser = async () => {
 
   const user = data.session?.user;
 
-  return user;
+  return user || null;
 };
 
 export const forgotPassword = async ({
@@ -91,4 +91,15 @@ export const updatePassword = async ({
   }
 
   return data;
+};
+
+export const userLogout = async () => {
+  const { error } = await supabase.auth.signOut();
+
+  if (error) {
+    throw new CustomError({
+      message: error.message,
+      code: error.status,
+    });
+  }
 };

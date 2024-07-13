@@ -10,7 +10,9 @@
     "watch-free": "Watch for free",
     "register": "Register",
     "reset-password": "Reset password",
-    "waiting": "Loading..."
+    "waiting": "Loading...",
+    "sign-out": "Logout",
+    "settings": "Settings"
   },
   "features": {
     "work-title": "Works Worldwide",

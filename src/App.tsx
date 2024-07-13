@@ -6,13 +6,14 @@ import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { FormContextProvider } from "./features/ui/form/context/FormContext";
 import { ForgotPassword } from "./pages/ForgotPassword";
-import { Dashboard } from "./pages/Dashboard";
+import { Dashboard } from "./pages/Dashboard/Dashboard";
 import { ProtectedRoute } from "./features/ui/ProtectedRoute";
 import { ResetPassword } from "./pages/ResetPassword";
 import { Toaster } from "react-hot-toast";
-import { DashboardMovies } from "./pages/DashboardMovies";
-import { DashboardTVSeries } from "./pages/DashboardTvSeries";
-import { DashboardBookmarks } from "./pages/DashboardBookmarks";
+import { DashboardMovies } from "./pages/Dashboard/DashboardMovies";
+import { DashboardTVSeries } from "./pages/Dashboard/DashboardTvSeries";
+import { DashboardBookmarks } from "./pages/Dashboard/DashboardBookmarks";
+import { DashboardUserSettings } from "./pages/Dashboard/DashboardUserSettings";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: RouterRoutes.DASHBOARD_BOOKMARKS,
         element: <DashboardBookmarks />,
+      },
+      {
+        path: RouterRoutes.DASHBOARD_USER_SETTINGS,
+        element: <DashboardUserSettings />,
       },
     ],
   },
