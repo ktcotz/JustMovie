@@ -12,7 +12,12 @@
     "reset-password": "Reset password",
     "waiting": "Loading...",
     "sign-out": "Logout",
-    "settings": "Settings"
+    "settings": "Settings",
+    "back": "Back to Home"
+  },
+  "wrong": {
+    "title": "We do'nt support such a site!",
+    "description": "You accidentally tried to visit a website that we do not support. Sorry, but you'd better return to the home page."
   },
   "features": {
     "work-title": "Works Worldwide",

@@ -12,7 +12,12 @@
     "reset-password": "Zresetuj hasło",
     "waiting": "Ładowanie...",
     "sign-out": "Wyloguj",
-    "settings": "Ustawienia"
+    "settings": "Ustawienia",
+    "back": "Wróć na stronę główną"
+  },
+  "wrong": {
+    "title": "Nie obsługujemy takiej strony!",
+    "description": " Przypadkiem próbowałeś trafić na stronę której nie obsługujemy. Przepraszamy, ale lepiej jak wrócisz na stronę główną."
   },
   "features": {
     "work-title": "Działa na całym świecie",

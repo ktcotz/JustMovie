@@ -1,9 +1,10 @@
 GŁÓWNE WAŻNE
 
-2. Stworzenie generalnego dashboard.
+2. Stworzenie generalnego dashboard. (WYNIKOWO)
 
-3. Ustawienia usera
+3. Ustawienia usera (DRUGA KOLEJNOŚĆ.)
 
+- Zmiana nickname.
 - Zmiana hasła.
 - Zmiana avatara.
 
