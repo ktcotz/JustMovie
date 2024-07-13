@@ -78,7 +78,8 @@
     "no-expected": "Unexpected error, try again later!",
     "invalid-user-credentials": "Invalid user credentials!",
     "not-confirmed": "You haven't confirmed your account, check your email.",
-    "forgot-toast": "Check your mailbox and follow the steps!"
+    "forgot-toast": "Check your mailbox and follow the steps!",
+    "same-password": "Old password are the same like new password."
   },
   "navigation": {
     "nav-home": "Home",
@@ -89,6 +90,7 @@
   "settings": {
     "title": "User settings",
     "user-name": "Anonymous",
-    "set-name": "Set name and surname"
+    "set-name": "Set name and surname",
+    "update-password": "Update password"
   }
 }

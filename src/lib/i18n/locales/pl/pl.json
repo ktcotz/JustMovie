@@ -78,7 +78,8 @@
     "no-expected": "Niespodziewany error, spróbuj ponownie za chwilę!",
     "invalid-user-credentials": "Niepoprawne dane logowania!",
     "not-confirmed": "Nie potwierdziłeś konta, zajrzyj na pocztę.",
-    "forgot-toast": "Sprawdź skrzynkę pocztową i podążaj za krokami!"
+    "forgot-toast": "Sprawdź skrzynkę pocztową i podążaj za krokami!",
+    "same-password": "Hasło które wprowadzasz jest aktualnym hasłem."
   },
   "navigation": {
     "nav-home": "Strona główna",
@@ -89,6 +90,7 @@
   "settings": {
     "title": "Ustawienia użytkownika",
     "user-name": "Nieznajomy",
-    "set-name": "Ustaw imię i nazwisko"
+    "set-name": "Ustaw imię i nazwisko",
+    "update-password": "Zmień hasło"
   }
 }

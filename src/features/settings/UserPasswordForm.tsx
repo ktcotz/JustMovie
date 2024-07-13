@@ -1,49 +1,41 @@
-import { Form } from "../ui/form/Form";
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-
 import { useTranslation } from "react-i18next";
-import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
+import { Form } from "../ui/form/Form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { Spinner } from "../ui/Spinner";
-import {
-  UpdatePasswordFormSchema,
-  UpdatePasswordSchema,
-} from "./schema/UpdatePasswordSchema";
 import { useFormContext } from "../ui/form/context/useFormContext";
-import { useUpdateUserPassword } from "./mutations/useUpdateUserPassword";
-import { useNavigate } from "react-router";
-import { RouterRoutes } from "../../types/routes";
+import {
+  UserPasswordFormSchema,
+  UserPasswordSchema,
+} from "./schemas/UserPasswordFormSchema";
+import { useUpdateUserPassword } from "../authentication/mutations/useUpdateUserPassword";
+import { ValidationErrorMessage } from "../../lib/i18n/i18n.types";
 
-export const UpdatePasswordForm = () => {
+export const UserPasswordForm = () => {
+  const { t } = useTranslation();
   const {
     handleSubmit,
-    formState: { errors },
     register,
     reset,
-  } = useForm<UpdatePasswordSchema>({
-    resolver: zodResolver(UpdatePasswordFormSchema),
+    formState: { errors },
+  } = useForm<UserPasswordSchema>({
+    resolver: zodResolver(UserPasswordFormSchema),
   });
-  const { update, isUpdating, updateError } = useUpdateUserPassword();
-  const { t } = useTranslation();
-  const { isPasswordShow } = useFormContext();
-  const navigate = useNavigate();
-  const submitHandler = ({ password }: UpdatePasswordSchema) => {
-    update(
-      { password },
-      {
-        onSuccess: () => {
-          navigate(RouterRoutes.LOGIN);
-          reset();
-        },
-      },
-    );
-  };
 
+  const { isPasswordShow } = useFormContext();
+
+  const { update, isUpdating, updateError } = useUpdateUserPassword();
+
+  const submitHandler = ({ password }: UserPasswordSchema) => {
+    update({ password },{
+      onSuccess:() => {
+        reset()
+      }
+    });
+  };
   return (
-    <div className="rounded-sm bg-slate-800 p-8">
-      <h1 className="mb-10 text-2xl font-medium text-slate-50">
-        {t("forms.forgot-password-title")}
-      </h1>
+    <>
+      <h2 className="mb-4">{t("settings.update-password")}</h2>
       <Form onSubmit={handleSubmit(submitHandler)}>
         <Form.Item>
           <Form.InputContainer>
@@ -67,7 +59,7 @@ export const UpdatePasswordForm = () => {
           )}
         </Form.Item>
         <Form.Submit>
-          {isUpdating ? <Spinner /> : t("links.reset-password")}
+          {isUpdating ? <Spinner /> : t("forms.forgot-password-title")}
         </Form.Submit>
       </Form>
       {updateError && (
@@ -75,6 +67,6 @@ export const UpdatePasswordForm = () => {
           {t(updateError.generateError())}
         </p>
       )}
-    </div>
+    </>
   );
 };

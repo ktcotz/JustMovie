@@ -3,6 +3,7 @@ import { UserDataForm } from "../../features/settings/UserDataForm";
 import { UserChangeAvatar } from "../../features/settings/UserChangeAvatar";
 import { useGetUser } from "../../features/authentication/mutations/useGetUser";
 import { Spinner } from "../../features/ui/Spinner";
+import { UserPasswordForm } from "../../features/settings/UserPasswordForm";
 
 export const DashboardUserSettings = () => {
   const { user, isLoading } = useGetUser();
@@ -25,6 +26,9 @@ export const DashboardUserSettings = () => {
         </div>
         <div className="max-w-[350px]">
           <UserDataForm />
+        </div>
+        <div className="max-w-[350px]">
+          <UserPasswordForm />
         </div>
         <span className="block h-[1px] w-full bg-slate-700">&nbsp;</span>
         <UserChangeAvatar />

@@ -18,8 +18,6 @@ export const UserChangeAvatar = () => {
     },
   });
 
-  console.log(preview);
-
   if (isLoading) {
     return <Spinner />;
   }

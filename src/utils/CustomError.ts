@@ -14,7 +14,7 @@ enum ErrorCodes {
 export class CustomError extends Error {
   private errorCodes: Record<ErrorCodes, SupabaseErrorMessage> = {
     "429": this.rateLimingError(),
-    "422": this.userAlreadyRegister(),
+    "422": this.userDataManageError(),
     "400": this.invalidUserCredentials(),
   };
 
@@ -32,7 +32,13 @@ export class CustomError extends Error {
     return "supabase.no-expected" as const;
   }
 
-  private userAlreadyRegister() {
+  private userDataManageError() {
+    const isPasswordError = this.message.includes("password");
+
+    if (isPasswordError) {
+      return "supabase.same-password" as const;
+    }
+
     return "supabase.user-already-registered" as const;
   }
 
