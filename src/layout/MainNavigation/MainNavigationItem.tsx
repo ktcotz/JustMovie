@@ -2,6 +2,7 @@ import { CustomLink } from "../../features/ui/CustomLink";
 import { Tooltip } from "react-tooltip";
 import { useTranslation } from "react-i18next";
 import { mainNavigationData } from "./data";
+import { useMediaQuery } from "usehooks-ts";
 
 type MainNavigationItemProps = {
   path: string;
@@ -15,6 +16,7 @@ export const MainNavigationItem = ({
   icon,
 }: MainNavigationItemProps) => {
   const { t } = useTranslation();
+  const matches = useMediaQuery("(max-width:678px)");
 
   return (
     <>
@@ -24,7 +26,7 @@ export const MainNavigationItem = ({
         aria-label={t(title)}
         data-tooltip-id={title}
         data-tooltip-content={t(title)}
-        data-tooltip-place="right"
+        data-tooltip-place={matches ? "bottom" : "right"}
       >
         <img
           src={icon}
@@ -34,7 +36,7 @@ export const MainNavigationItem = ({
           className="hover:brightness-101 hover:contrast-102 transition-all hover:hue-rotate-[307deg] hover:invert hover:saturate-0 hover:sepia-0"
         />
       </CustomLink>
-      <Tooltip id={title} />
+      <Tooltip id={title} style={{ zIndex: 9999 }} />
     </>
   );
 };

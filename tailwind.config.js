@@ -16,7 +16,6 @@ export default {
       ringOffsetColor: {
         primary: "#10141E",
       },
-      
     },
   },
   plugins: [],
