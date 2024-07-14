@@ -16,7 +16,7 @@ export const registerUser = async ({ email, password }: UserCredentials) => {
         name: "",
         surname: "",
         avatar:
-          "https://lcibdfunhrzjmuytpeyq.supabase.co/storage/v1/object/sign/avatars/user.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJhdmF0YXJzL3VzZXIucG5nIiwiaWF0IjoxNzIwODg4MzU1LCJleHAiOjE3NTI0MjQzNTV9.OVqMdjQEYTw74jMLd_5eQ5ECPGRKOtMFFIclD6Elu6A&t=2024-07-13T16%3A32%3A35.333Z",
+          "https://lcibdfunhrzjmuytpeyq.supabase.co/storage/v1/object/public/avatars/user.png",
       },
     },
   });

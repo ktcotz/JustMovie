@@ -23,7 +23,7 @@ export const DefaultAvatars = ({ onSetPreview }: DefaultAvatarsProps) => {
         {avatars
           ?.filter((avatar) => avatar.metadata.size > 0)
           .map((avatar) => {
-            const url = `${supabaseUrl}/storage/v1/object/public/avatars/${avatar.name}`;
+            const url = `${supabaseUrl}/storage/v1/object/public/avatars/default/${avatar.name}`;
             return (
               <Button modifier="avatar" onClick={() => onSetPreview(url)}>
                 <img

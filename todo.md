@@ -1,10 +1,10 @@
 GŁÓWNE WAŻNE
 
-2. Stworzenie generalnego dashboard. (WYNIKOWO)
+Stworzenie generalnego dashboard. (WYNIKOWO)
 
-3. Ustawienia usera (DRUGA KOLEJNOŚĆ.)
-
-- Zmiana avatara.
+2. Trending + Swipper.
+3. Recommended for you.
+4. Zrobienie by kategoria.
 
 OPCJONALNE
 

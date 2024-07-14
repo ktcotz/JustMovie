@@ -14,6 +14,7 @@ import { DashboardMovies } from "./pages/Dashboard/DashboardMovies";
 import { DashboardTVSeries } from "./pages/Dashboard/DashboardTvSeries";
 import { DashboardBookmarks } from "./pages/Dashboard/DashboardBookmarks";
 import { DashboardUserSettings } from "./pages/Dashboard/DashboardUserSettings";
+import { DashboardHome } from "./pages/Dashboard/DashboardHome";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
+      {
+        path: "",
+        element: <DashboardHome />,
+      },
       {
         path: RouterRoutes.DASHBOARD_MOVIES,
         element: <DashboardMovies />,
