@@ -15,7 +15,9 @@ export const MovieDescription = ({
   const { t } = useTranslation();
 
   const type =
-    media_type === "movie" ? t("movies.movie") : t("movies.tv-serie");
+    media_type === "movie" || !media_type
+      ? t("movies.movie")
+      : t("movies.tv-serie");
 
   return (
     <>
@@ -23,7 +25,10 @@ export const MovieDescription = ({
         {release_date && <li>{new Date(release_date).getFullYear()}</li>}
         <li className="h-1 w-1 rounded-full bg-slate-500">&nbsp;</li>
         <li className="flex items-center gap-2">
-          <img src="./images/icon-category-movie.svg" alt="Movie" />
+          <img
+            src={`./images/icon-category-${media_type ?? "movie"}.svg`}
+            alt=""
+          />
           <span>{type}</span>
         </li>
         <li className="h-1 w-1 rounded-full bg-slate-500">&nbsp;</li>

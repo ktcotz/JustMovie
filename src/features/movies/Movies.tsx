@@ -33,7 +33,7 @@ export const Movies = ({ title, category }: MoviesProps) => {
         <h2 className="text-xl font-normal text-slate-300 sm:text-3xl">
           {t(title)}
         </h2>
-        <CustomLink to={`movie/${category}`} type="more">
+        <CustomLink to={`/dashboard/movies/${category}`} type="more">
           {t("links.more")}
         </CustomLink>
       </div>
