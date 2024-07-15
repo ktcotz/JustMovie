@@ -1,6 +1,6 @@
 import { Category } from "./Category";
 import { DashboardType } from "./CategoryDashboard";
-import { useGetBookmark } from "./queries/useGetBookmark";
+import { useGetIndividual } from "./queries/useGetIndividual";
 
 type BookmarkProps = {
   external_id: string;
@@ -9,11 +9,11 @@ type BookmarkProps = {
 };
 
 export const Bookmark = ({ external_id, type }: BookmarkProps) => {
-  const { data } = useGetBookmark({ external_id });
+  const { data } = useGetIndividual({ external_id, type });
 
-  const result = type === "movie" ? data?.movie_results : data?.tv_results;
+  console.log(data);
 
-  return result?.map((movie) => (
+  return data?.map((movie) => (
     <Category key={movie.id} {...movie} type={type} />
   ));
 };

@@ -9,5 +9,6 @@ export enum RouterRoutes {
   DASHBOARD_TV_SERIES = "series",
   DASHBOARD_BOOKMARKS = "bookmarks",
   DASHBOARD_USER_SETTINGS = "settings",
+  DASHBOARD_SINGLE_OVERVIEW = ":type/:id",
   NOT_FOUND = "*",
 }

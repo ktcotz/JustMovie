@@ -15,6 +15,7 @@ import { DashboardTVSeries } from "./pages/Dashboard/DashboardTvSeries";
 import { DashboardBookmarks } from "./pages/Dashboard/DashboardBookmarks";
 import { DashboardUserSettings } from "./pages/Dashboard/DashboardUserSettings";
 import { DashboardHome } from "./pages/Dashboard/DashboardHome";
+import { DashboardSingleOvierview } from "./pages/Dashboard/DashboardSingleOverview";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <DashboardHome />,
+      },
+      {
+        path: RouterRoutes.DASHBOARD_SINGLE_OVERVIEW,
+        element: <DashboardSingleOvierview />,
       },
       {
         path: RouterRoutes.DASHBOARD_MOVIES,

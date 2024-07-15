@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { GetByCategory } from "../mutations/useCategory";
 import {
   API,
+  language,
   MOVIES_API_CONFIG_ROUTES,
   SERIES_API_CONFIG_ROUTES,
 } from "./config";
@@ -13,7 +14,7 @@ import { ExternalIDSchema } from "../schema/ExternalIDSchema";
 import { supabase } from "../../../lib/supabase/supabase";
 import { CustomError } from "../../../utils/CustomError";
 import { Bookmark } from "../CategoryBookmark";
-import { GetBookmarkData } from "../queries/useGetBookmark";
+import { GetIndividualData } from "../queries/useGetIndividual";
 import {
   BookmarkFindSchema,
   BookmarkSupabaseSchema,
@@ -144,10 +145,13 @@ export const getBookmarks = async () => {
   return parsedBookmarks;
 };
 
-export const getBookmark = async ({ external_id }: GetBookmarkData) => {
+export const getIndividual = async ({
+  external_id,
+  type,
+}: GetIndividualData) => {
   try {
     const res = await fetch(
-      `${API}/find/${external_id}?external_source=imdb_id`,
+      `${API}/find/${external_id}?external_source=imdb_id&language=${language}`,
       {
         method: "GET",
         headers: {
@@ -165,7 +169,13 @@ export const getBookmark = async ({ external_id }: GetBookmarkData) => {
 
     const parsedData = BookmarkFindSchema.parse(data);
 
-    return parsedData;
+    if (type === "movie" && parsedData) {
+      return parsedData.movie_results;
+    }
+
+    if (type === "tv" && parsedData) {
+      return parsedData.tv_results;
+    }
   } catch (err) {
     if (err instanceof Error) {
       toast.error(err.message);

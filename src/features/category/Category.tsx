@@ -32,7 +32,7 @@ export const Category = ({
   return (
     <>
       <div className="relative overflow-hidden rounded-md transition-all hover:rotate-1">
-        <CustomLink to={`${id}`}>
+        <CustomLink to={`/dashboard/${type}/${data?.imdb_id}`}>
           <div className={`${inside ? "opacity-35" : "opacity-100"}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}

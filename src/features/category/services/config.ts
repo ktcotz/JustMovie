@@ -3,7 +3,7 @@ import { MoviesCategory, TVCategory } from "./types";
 
 export const API = `https://api.themoviedb.org/3`;
 
-const language = i18next.language === "en" ? "en-US" : "pl-PL";
+export const language = i18next.language === "en" ? "en-US" : "pl-PL";
 
 export const MOVIES_API_CONFIG_ROUTES: Record<MoviesCategory, string> = {
   trending: `${API}/trending/all/day?language=${language}`,
