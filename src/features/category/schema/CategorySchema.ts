@@ -27,6 +27,8 @@ export const CategoryResponseSuccessfulSchema = z.object({
   total_results: z.number(),
 });
 
+
+
 export type Category = z.infer<typeof CategorySchema>;
 export type CategoryResponseSuccessful = z.infer<
   typeof CategoryResponseSuccessfulSchema

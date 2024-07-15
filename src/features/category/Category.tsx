@@ -2,7 +2,8 @@ import { CustomLink } from "../ui/CustomLink";
 import { CategoryBookmark } from "./CategoryBookmark";
 import { MovieDescription } from "./CategoryDescription";
 import { DashboardType } from "./CategoryDashboard";
-import { GeneralMovie } from "./schema/CategorySchema";
+import { Category as CategoryData } from "./schema/CategorySchema";
+import { useGetExternalID } from "./queries/useGetExternalID";
 
 type MovieProps = {
   inside?: boolean;
@@ -18,7 +19,9 @@ export const Category = ({
   release_date,
   type,
   inside = true,
-}: GeneralMovie & MovieProps) => {
+}: CategoryData & MovieProps) => {
+  const { data } = useGetExternalID({ id, type });
+
   const description = {
     title,
     release_date,
@@ -44,7 +47,7 @@ export const Category = ({
             </div>
           )}
         </CustomLink>
-        <CategoryBookmark />
+        {data && <CategoryBookmark id={id} type={type} data={data} />}
         {!inside && (
           <div className="mt-6">
             <MovieDescription description={description} />

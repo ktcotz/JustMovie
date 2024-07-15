@@ -1,6 +1,6 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useCategory } from "./useCategory";
+import { useCategory } from "./mutations/useCategory";
 import { Category } from "./Category";
 import { Spinner } from "../ui/Spinner";
 import { useTranslation } from "react-i18next";

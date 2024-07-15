@@ -1,4 +1,4 @@
-import { useCategory } from "./useCategory";
+import { useCategory } from "./mutations/useCategory";
 import { Category } from "./Category";
 import { Spinner } from "../ui/Spinner";
 import { CustomLink } from "../ui/CustomLink";
