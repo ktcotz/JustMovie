@@ -11,16 +11,17 @@ export const Movie = ({
   id,
   backdrop_path,
   title,
+  original_title,
   inside = true,
 }: GeneralMovie & MovieProps) => {
   return (
     <>
       <div className="relative overflow-hidden rounded-md transition-all hover:rotate-1">
         <CustomLink to={`${id}`}>
-          <div className={`${inside ? "opacity-45" : "opacity-100"}`}>
+          <div className={`${inside ? "opacity-35" : "opacity-100"}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
-              alt={title}
+              alt={title || original_title}
               width={500}
               height={281}
             />

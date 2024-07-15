@@ -1,7 +1,7 @@
 export const MovieDescription = () => {
   return (
     <>
-      <ul className="flex items-center gap-2 text-sm text-slate-300">
+      <ul className="flex items-center gap-2 text-sm text-slate-200">
         <li className="">2019</li>
         <li className="h-1 w-1 rounded-full bg-slate-500">&nbsp;</li>
         <li className="flex items-center gap-2">
