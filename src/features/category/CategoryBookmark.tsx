@@ -43,7 +43,7 @@ export const CategoryBookmark = ({ id, type, data }: CategoryBookmarkProps) => {
       onClick={manageBookmark}
     >
       <img
-        src={`./images/icon-bookmark-${isBookmarked ? "full" : "empty"}.svg`}
+        src={`./../images/icon-bookmark-${isBookmarked ? "full" : "empty"}.svg`}
         alt=""
         className=""
       />

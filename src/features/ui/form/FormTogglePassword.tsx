@@ -13,7 +13,7 @@ export const FormTogglePassword = () => {
   return (
     <button aria-label={label} type="button" onClick={() => togglePassword()}>
       <img
-        src={`./images/${isPasswordShow ? "icon-close-eye.svg" : "icon-eye.svg"}`}
+        src={`./../images/${isPasswordShow ? "icon-close-eye.svg" : "icon-eye.svg"}`}
         alt=""
         width={24}
         height={24}

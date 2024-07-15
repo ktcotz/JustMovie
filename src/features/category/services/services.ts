@@ -75,27 +75,23 @@ export const getSerieByCategory = async ({ category }: GetByCategory) => {
 };
 
 export const getExternalID = async ({ id, type }: GetExternalID) => {
-  try {
-    const res = await fetch(`${API}/${type}/${id}/external_ids`, {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
-      },
-    });
+  const res = await fetch(`${API}/${type}/${id}/external_ids`, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    },
+  });
 
-    if (!res.ok) {
-      throw new Error(`Error : ${res.statusText}`);
-    }
-
-    const data = await res.json();
-
-    const parsedData = ExternalIDSchema.parse(data);
-
-    return parsedData;
-  } catch (err) {
-    console.error(err);
+  if (!res.ok) {
+    throw new Error(`Error : ${res.statusText}`);
   }
+
+  const data = await res.json();
+
+  const parsedData = ExternalIDSchema.parse(data);
+
+  return parsedData;
 };
 
 export const manageBookmark = async ({
