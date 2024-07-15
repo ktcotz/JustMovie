@@ -9,7 +9,7 @@ type MovieDashboard = {
 export const moviesDashboardData: MovieDashboard[] = [
   {
     id: 1,
-    title: "Recommended for you",
+    title: "Recommended",
     category: "recommended",
   },
   {

@@ -20,8 +20,6 @@ export const getMoviesByCategory = async ({ category }: GetMovieByCategory) => {
 
     const data = await res.json();
 
-    console.log(data);
-
     const parsedData = GeneralMovieSuccessfulResponseSchema.parse(data);
 
     return parsedData;

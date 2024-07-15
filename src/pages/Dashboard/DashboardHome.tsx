@@ -8,7 +8,9 @@ export const DashboardHome = () => {
       <Search />
       <TrendingMovies />
       <span className="mb-8 block h-[1px] w-full bg-slate-700">&nbsp;</span>
-      <MoviesDashboard />
+      <div className="pr-3 sm:pr-0">
+        <MoviesDashboard />
+      </div>
     </div>
   );
 };
