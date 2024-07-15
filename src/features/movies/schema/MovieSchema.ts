@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-export const TrendingMoviesSchema = z.object({
+export const GeneralMovieSchema = z.object({
   adult: z.boolean(),
-  backdrop_path: z.string(),
+  backdrop_path: z.string().nullable(),
   genre_ids: z.array(z.number()),
   id: z.number(),
-  media_type: z.string(),
+  media_type: z.string().optional(),
   original_language: z.string(),
   original_title: z.string().optional(),
   original_name: z.string().optional(),
@@ -20,14 +20,14 @@ export const TrendingMoviesSchema = z.object({
   vote_count: z.number(),
 });
 
-export const TrendingMovieSuccessfullResponseSchema = z.object({
+export const GeneralMovieSuccessfulResponseSchema = z.object({
   page: z.number(),
-  results: z.array(TrendingMoviesSchema),
+  results: z.array(GeneralMovieSchema),
   total_pages: z.number(),
   total_results: z.number(),
 });
 
-export type TrendingMovie = z.infer<typeof TrendingMoviesSchema>;
-export type TrendingMovieSuccessfullResponse = z.infer<
-  typeof TrendingMovieSuccessfullResponseSchema
+export type GeneralMovie = z.infer<typeof GeneralMovieSchema>;
+export type GeneralMovieSuccessfulResponse = z.infer<
+  typeof GeneralMovieSuccessfulResponseSchema
 >;

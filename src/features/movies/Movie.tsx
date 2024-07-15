@@ -1,7 +1,7 @@
 import { CustomLink } from "../ui/CustomLink";
 import { MovieBookmark } from "./MovieBookmark";
 import { MovieDescription } from "./MovieDescription";
-import { TrendingMovie } from "./schema/MovieSchema";
+import { GeneralMovie } from "./schema/MovieSchema";
 
 type MovieProps = {
   inside?: boolean;
@@ -12,10 +12,10 @@ export const Movie = ({
   backdrop_path,
   title,
   inside = true,
-}: TrendingMovie & MovieProps) => {
+}: GeneralMovie & MovieProps) => {
   return (
     <>
-      <div className="relative overflow-hidden rounded-md">
+      <div className="relative overflow-hidden rounded-md transition-all hover:rotate-1">
         <CustomLink to={`${id}`}>
           <div className={`${inside ? "opacity-45" : "opacity-100"}`}>
             <img
