@@ -3,11 +3,15 @@ import "react-multi-carousel/lib/styles.css";
 import { useMovies } from "./useMovies";
 import { Movie } from "./Movie";
 import { Spinner } from "../ui/Spinner";
+import { useTranslation } from "react-i18next";
 
 export const TrendingMovies = () => {
+  const { t } = useTranslation();
   const { data: trendingMovies, isLoading } = useMovies({
     category: "trending",
   });
+
+  console.log(trendingMovies);
 
   if (isLoading)
     return (
@@ -18,7 +22,9 @@ export const TrendingMovies = () => {
 
   return (
     <div className="relative mb-8 flex flex-col gap-8">
-      <h2 className="text-3xl font-normal text-slate-300">Trending</h2>
+      <h2 className="text-3xl font-normal text-slate-300">
+        {t("movies.trending")}
+      </h2>
       <Carousel
         additionalTransfrom={0}
         arrows={false}

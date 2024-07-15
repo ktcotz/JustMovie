@@ -5,12 +5,7 @@ Stworzenie generalnego dashboard. (WYNIKOWO)
 DO ZROBIENIA 15.07.2024:
 
 I18n.
-Responsywność.
-Możliwość kliknięcia see more i wtedy pojawia się strona z resztą filmów kategorii.
-
-2. Trending + Swipper.
-3. Recommended for you.
-4. Zrobienie by kategoria.
+POPRAWNE RENDEROWANIE ITEMÓW, ZMIANA TYTUŁÓW I TAKIE TAM.
 
 OPCJONALNE
 

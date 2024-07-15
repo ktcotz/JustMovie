@@ -24,3 +24,12 @@ type SupabaseTranslationsKeys = FlattenTranslations<
 
 export type SupabaseErrorMessage =
   SupabaseTranslationsKeys[keyof SupabaseTranslationsKeys];
+
+type MoviesTranslations = (typeof resources)["pl"]["translation"]["movies"];
+
+type MoviesTranslationsKeys = FlattenTranslations<
+  MoviesTranslations,
+  "movies."
+>;
+
+export type MoviesTitle = MoviesTranslationsKeys[keyof MoviesTranslationsKeys];

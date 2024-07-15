@@ -2,7 +2,13 @@ import { ReactNode } from "react";
 import { Link, LinkProps } from "react-router-dom";
 import twMerge from "clsx";
 
-type CustomLinkType = "primary" | "logo" | "secondary" | "inline" | "nav";
+type CustomLinkType =
+  | "primary"
+  | "logo"
+  | "secondary"
+  | "inline"
+  | "nav"
+  | "more";
 
 type CustomLinkProps = {
   children: ReactNode;
@@ -25,6 +31,7 @@ export const CustomLink = ({
     inline:
       "border-b border-transparent text-red-400 hover:text-red-300 transition font-semibold focus:outline-none focus:border-current",
     nav: "flex items-center justify-center",
+    more: "hover:text-red-500 transition",
   };
 
   const className = twMerge(base, type && modifier[type]);

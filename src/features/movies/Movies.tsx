@@ -4,17 +4,18 @@ import { Spinner } from "../ui/Spinner";
 import { CustomLink } from "../ui/CustomLink";
 import { useMediaQuery } from "usehooks-ts";
 import { Wrapper } from "../ui/Wrapper";
+import { moviesDashboardData } from "./data/data";
+import { useTranslation } from "react-i18next";
 
 type MoviesProps = {
-  title: string;
+  title: (typeof moviesDashboardData)[number]["title"];
   category: MoviesCategory;
 };
 
 export const Movies = ({ title, category }: MoviesProps) => {
   const { data, isLoading } = useMovies({ category });
+  const { t } = useTranslation();
   const matches = useMediaQuery("(max-width:1280px)");
-
-  console.log(matches);
 
   if (isLoading)
     return (
@@ -30,9 +31,11 @@ export const Movies = ({ title, category }: MoviesProps) => {
     <div className="relative mb-8 flex flex-col gap-8">
       <div className="flex items-center justify-between">
         <h2 className="text-xl font-normal text-slate-300 sm:text-3xl">
-          {title}
+          {t(title)}
         </h2>
-        <CustomLink to={`${category}`}>See more</CustomLink>
+        <CustomLink to={`movie/${category}`} type="more">
+          {t("links.more")}
+        </CustomLink>
       </div>
       <Wrapper type="movies">
         <div className="grid gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:gap-8 xl:grid-cols-4">

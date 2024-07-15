@@ -12,8 +12,18 @@ export const Movie = ({
   backdrop_path,
   title,
   original_title,
+  original_name,
+  release_date,
+  media_type,
   inside = true,
 }: GeneralMovie & MovieProps) => {
+  const description = {
+    title,
+    release_date,
+    original_name,
+    media_type,
+  };
+
   return (
     <>
       <div className="relative overflow-hidden rounded-md transition-all hover:rotate-1">
@@ -28,14 +38,14 @@ export const Movie = ({
           </div>
           {inside && (
             <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4">
-              <MovieDescription />
+              <MovieDescription description={description} />
             </div>
           )}
         </CustomLink>
         <MovieBookmark />
         {!inside && (
           <div className="mt-6">
-            <MovieDescription />
+            <MovieDescription description={description} />
           </div>
         )}
       </div>

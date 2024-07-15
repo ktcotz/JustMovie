@@ -1,55 +1,56 @@
+import { MoviesTitle } from "../../../lib/i18n/i18n.types";
 import { MoviesCategory } from "../useMovies";
 
 type MovieDashboard = {
   id: number;
-  title: string;
+  title: MoviesTitle;
   category: MoviesCategory;
 };
 
 export const moviesDashboardData: MovieDashboard[] = [
   {
     id: 1,
-    title: "Recommended",
+    title: "movies.recommended",
     category: "recommended",
   },
   {
     id: 2,
-    title: "Top Rated",
+    title: "movies.top",
     category: "top_rated",
   },
   {
     id: 3,
-    title: "Upcoming",
+    title: "movies.upcoming",
     category: "upcoming",
   },
   {
     id: 4,
-    title: "Horror",
+    title: "movies.horror",
     category: "horror",
   },
   {
     id: 5,
-    title: "Comedy",
+    title: "movies.comedy",
     category: "comedy",
   },
   {
     id: 6,
-    title: "War",
+    title: "movies.war",
     category: "war",
   },
   {
     id: 7,
-    title: "Animation",
+    title: "movies.animation",
     category: "animation",
   },
   {
     id: 8,
-    title: "Fantasy",
+    title: "movies.fantasy",
     category: "fantasy",
   },
   {
     id: 9,
-    title: "Romance",
+    title: "movies.romance",
     category: "romance",
   },
-];
+] as const;

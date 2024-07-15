@@ -13,7 +13,8 @@
     "waiting": "Loading...",
     "sign-out": "Logout",
     "settings": "Settings",
-    "back": "Back to Home"
+    "back": "Back to Home",
+    "more": "See more"
   },
   "wrong": {
     "title": "We do'nt support such a site!",
@@ -63,7 +64,8 @@
     "forgot-password-title": "Change password",
     "name-input-title": "Name",
     "surname-input-title": "Surname",
-    "user-submit-title": "Set user data"
+    "user-submit-title": "Set user data",
+    "search-input-title": "Search for movie or TV series"
   },
   "validation": {
     "email-required": "Email is required!",
@@ -97,5 +99,23 @@
     "save-avatar": "Set avatar",
     "not-save-avatar": "Reject",
     "free-avatars": "Use a default avatars"
+  },
+  "welcome": {
+    "title": "Welcome"
+  },
+  "movies": {
+    "trending": "Trending",
+    "recommended": "Recommended",
+    "top": "Top Rated",
+    "upcoming": "Upcoming",
+    "horror": "Horror",
+    "comedy": "Comedy",
+    "war": "War",
+    "animation": "Animation",
+    "fantasy": "Fantasy",
+    "romance": "Romance",
+    "who": "PG",
+    "movie": "Movie",
+    "tv-serie": "TV Serie"
   }
 }

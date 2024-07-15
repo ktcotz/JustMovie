@@ -13,7 +13,8 @@
     "waiting": "Ładowanie...",
     "sign-out": "Wyloguj",
     "settings": "Ustawienia",
-    "back": "Wróć na stronę główną"
+    "back": "Wróć na stronę główną",
+    "more": "Zobacz więcej"
   },
   "wrong": {
     "title": "Nie obsługujemy takiej strony!",
@@ -63,7 +64,8 @@
     "forgot-password-title": "Zmień hasło",
     "name-input-title": "Imię",
     "surname-input-title": "Nazwisko",
-    "user-submit-title": "Ustaw dane użytkownika"
+    "user-submit-title": "Ustaw dane użytkownika",
+    "search-input-title": "Wyszukaj filmu albo serialu"
   },
   "validation": {
     "email-required": "Adres e-mail jest wymagany!",
@@ -97,5 +99,23 @@
     "save-avatar": "Ustaw avatara",
     "not-save-avatar": "Nie zapisuj",
     "free-avatars": "Skorzystaj z darmowych avatarów"
+  },
+  "welcome": {
+    "title": "Cześć"
+  },
+  "movies": {
+    "trending": "Na czasie",
+    "recommended": "Polecane",
+    "top": "Najwyżej oceniane",
+    "upcoming": "Nadchodzące",
+    "horror": "Horror",
+    "comedy": "Komedie",
+    "war": "Wojenne",
+    "animation": "Animowane",
+    "fantasy": "Fantastyczne",
+    "romance": "Romantyczne",
+    "who": "Bez wieku",
+    "movie": "Film",
+    "tv-serie": "Serial"
   }
 }
