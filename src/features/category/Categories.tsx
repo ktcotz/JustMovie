@@ -1,12 +1,12 @@
-import { useMovies } from "./useMovies";
-import { Movie } from "./Movie";
+import { useCategory } from "./useCategory";
+import { Category } from "./Category";
 import { Spinner } from "../ui/Spinner";
 import { CustomLink } from "../ui/CustomLink";
 import { useMediaQuery } from "usehooks-ts";
 import { Wrapper } from "../ui/Wrapper";
 import { moviesDashboardData } from "./data/movie-data";
 import { useTranslation } from "react-i18next";
-import { DashboardType } from "./MoviesDashboard";
+import { DashboardType } from "./CategoryDashboard";
 import { MoviesCategory, TVCategory } from "./services/types";
 
 type MoviesProps = {
@@ -16,7 +16,7 @@ type MoviesProps = {
 };
 
 export const Movies = ({ title, category, type }: MoviesProps) => {
-  const { data, isLoading } = useMovies({ category, type });
+  const { data, isLoading } = useCategory({ category, type });
   const { t } = useTranslation();
   const matches = useMediaQuery("(max-width:1280px)");
 
@@ -45,7 +45,7 @@ export const Movies = ({ title, category, type }: MoviesProps) => {
           {data?.results
             .slice(MIN_RESULTS_LENGTH, MAX_RESULTS_LENGTH)
             .map((movie) => (
-              <Movie key={movie.id} {...movie} inside={false} type={type} />
+              <Category key={movie.id} {...movie} inside={false} type={type} />
             ))}
         </div>
       </Wrapper>

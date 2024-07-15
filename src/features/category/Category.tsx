@@ -1,15 +1,15 @@
 import { CustomLink } from "../ui/CustomLink";
-import { MovieBookmark } from "./MovieBookmark";
-import { MovieDescription } from "./MovieDescription";
-import { DashboardType } from "./MoviesDashboard";
-import { GeneralMovie } from "./schema/MovieSchema";
+import { CategoryBookmark } from "./CategoryBookmark";
+import { MovieDescription } from "./CategoryDescription";
+import { DashboardType } from "./CategoryDashboard";
+import { GeneralMovie } from "./schema/CategorySchema";
 
 type MovieProps = {
   inside?: boolean;
   type: DashboardType;
 };
 
-export const Movie = ({
+export const Category = ({
   id,
   backdrop_path,
   title,
@@ -44,7 +44,7 @@ export const Movie = ({
             </div>
           )}
         </CustomLink>
-        <MovieBookmark />
+        <CategoryBookmark />
         {!inside && (
           <div className="mt-6">
             <MovieDescription description={description} />

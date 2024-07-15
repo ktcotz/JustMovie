@@ -1,15 +1,15 @@
-import { MoviesDashboard } from "../../features/movies/MoviesDashboard";
-import { TrendingMovies } from "../../features/movies/TrendingMovies";
+import { CarouselMovies } from "../../features/category/CarouselMovies";
+import { CategoryDashboard } from "../../features/category/CategoryDashboard";
 import { Search } from "../../features/ui/SearchInput";
 
 export const DashboardHome = () => {
   return (
     <div>
       <Search />
-      <TrendingMovies />
+      <CarouselMovies />
       <span className="mb-8 block h-[1px] w-full bg-slate-700">&nbsp;</span>
       <div className="pr-3 sm:pr-0">
-        <MoviesDashboard />
+        <CategoryDashboard />
       </div>
     </div>
   );

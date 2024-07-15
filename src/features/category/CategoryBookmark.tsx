@@ -1,6 +1,6 @@
 import { Button } from "../ui/Button";
 
-export const MovieBookmark = () => {
+export const CategoryBookmark = () => {
   return (
     <Button
       aria-label="Add to bookmarks"

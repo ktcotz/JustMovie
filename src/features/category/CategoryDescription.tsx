@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { DashboardType } from "./MoviesDashboard";
+import { DashboardType } from "./CategoryDashboard";
 
 type MovieDescriptionProps = {
   description: {

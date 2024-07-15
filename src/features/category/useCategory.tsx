@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { getMoviesByCategory, getSerieByCategory } from "./services/services";
-import { DashboardType } from "./MoviesDashboard";
+import { DashboardType } from "./CategoryDashboard";
 import { MoviesCategory, TVCategory } from "./services/types";
-
 
 export type GetByCategory = {
   category: MoviesCategory | TVCategory;
@@ -13,7 +12,7 @@ type MoviesHookProps = {
   type: DashboardType;
 };
 
-export const useMovies = ({ category, type }: MoviesHookProps) => {
+export const useCategory = ({ category, type }: MoviesHookProps) => {
   const { data, isLoading } = useQuery({
     queryKey: ["movies", category, type],
     queryFn: () =>

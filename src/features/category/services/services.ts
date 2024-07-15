@@ -1,8 +1,8 @@
 import toast from "react-hot-toast";
 
-import { GetByCategory } from "../useMovies";
+import { GetByCategory } from "../useCategory";
 import { MOVIES_API_CONFIG_ROUTES, SERIES_API_CONFIG_ROUTES } from "./config";
-import { GeneralMovieSuccessfulResponseSchema } from "../schema/MovieSchema";
+import { CategoryResponseSuccessfulSchema } from "../schema/CategorySchema";
 import { MoviesCategory, TVCategory } from "./types";
 
 export const getMoviesByCategory = async ({ category }: GetByCategory) => {
@@ -24,7 +24,7 @@ export const getMoviesByCategory = async ({ category }: GetByCategory) => {
 
     const data = await res.json();
 
-    const parsedData = GeneralMovieSuccessfulResponseSchema.parse(data);
+    const parsedData = CategoryResponseSuccessfulSchema.parse(data);
 
     return parsedData;
   } catch (err) {
@@ -50,7 +50,7 @@ export const getSerieByCategory = async ({ category }: GetByCategory) => {
 
     const data = await res.json();
 
-    const parsedData = GeneralMovieSuccessfulResponseSchema.parse(data);
+    const parsedData = CategoryResponseSuccessfulSchema.parse(data);
 
     return parsedData;
   } catch (err) {

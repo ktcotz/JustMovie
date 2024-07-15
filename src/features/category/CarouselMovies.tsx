@@ -1,17 +1,16 @@
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useMovies } from "./useMovies";
-import { Movie } from "./Movie";
+import { useCategory } from "./useCategory";
+import { Category } from "./Category";
 import { Spinner } from "../ui/Spinner";
 import { useTranslation } from "react-i18next";
 
-export const TrendingMovies = () => {
+export const CarouselMovies = () => {
   const { t } = useTranslation();
-  const { data: trendingMovies, isLoading } = useMovies({
+  const { data: trendingMovies, isLoading } = useCategory({
+    type: "movie",
     category: "trending",
   });
-
-  console.log(trendingMovies);
 
   if (isLoading)
     return (
@@ -80,7 +79,7 @@ export const TrendingMovies = () => {
         swipeable
       >
         {trendingMovies?.results.map((movie) => (
-          <Movie key={movie.id} {...movie} />
+          <Category key={movie.id} type="movie" {...movie} />
         ))}
       </Carousel>
     </div>
