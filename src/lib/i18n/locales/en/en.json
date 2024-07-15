@@ -120,6 +120,8 @@
     "kids": "Kids",
     "family": "Family",
     "mystery": "Mystery",
-    "tv-serie": "TV Serie"
+    "tv-serie": "TV Serie",
+    "remove-bookmarked": "Remove from bookmarked",
+    "add-bookmarked": "Add to bookmarked"
   }
 }

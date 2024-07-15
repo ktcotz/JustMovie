@@ -120,6 +120,8 @@
     "kids": "Dla dzieci",
     "family": "Rodzinne",
     "mystery": "Tajemnicze",
-    "tv-serie": "Serial"
+    "tv-serie": "Serial",
+    "remove-bookmarked": "Usuń z zakładek",
+    "add-bookmarked": "Dodaj do zakładek"
   }
 }

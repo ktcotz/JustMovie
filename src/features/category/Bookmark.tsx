@@ -13,5 +13,7 @@ export const Bookmark = ({ external_id, type }: BookmarkProps) => {
 
   const result = type === "movie" ? data?.movie_results : data?.tv_results;
 
-  return result?.map((movie) => <Category {...movie} type={type} />);
+  return result?.map((movie) => (
+    <Category key={movie.id} {...movie} type={type} />
+  ));
 };

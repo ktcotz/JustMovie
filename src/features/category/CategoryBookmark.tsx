@@ -3,6 +3,7 @@ import { DashboardType } from "./CategoryDashboard";
 import { useGetBookmarks } from "./queries/useGetBookmarks";
 import { useManageBookmark } from "./mutations/useManageBookmark";
 import { ExternalID } from "./schema/ExternalIDSchema";
+import { useTranslation } from "react-i18next";
 
 type CategoryBookmarkProps = {
   id: number;
@@ -19,6 +20,7 @@ export type Bookmark = {
 export const CategoryBookmark = ({ id, type, data }: CategoryBookmarkProps) => {
   const { bookmarks } = useGetBookmarks();
   const { manage } = useManageBookmark();
+  const { t } = useTranslation();
 
   const manageBookmark = () => {
     if (!data.imdb_id) return;
@@ -32,7 +34,11 @@ export const CategoryBookmark = ({ id, type, data }: CategoryBookmarkProps) => {
 
   return (
     <Button
-      aria-label="Add to bookmarks"
+      aria-label={
+        isBookmarked
+          ? t("movies.remove-bookmarked")
+          : t("movies.add-bookmarked")
+      }
       modifier="bookmark"
       onClick={manageBookmark}
     >

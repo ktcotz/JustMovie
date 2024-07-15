@@ -14,6 +14,10 @@ import { supabase } from "../../../lib/supabase/supabase";
 import { CustomError } from "../../../utils/CustomError";
 import { Bookmark } from "../CategoryBookmark";
 import { GetBookmarkData } from "../queries/useGetBookmark";
+import {
+  BookmarkFindSchema,
+  BookmarkSupabaseSchema,
+} from "../schema/BookmarkSchema";
 
 export const getMoviesByCategory = async ({ category }: GetByCategory) => {
   try {
@@ -139,7 +143,9 @@ export const getBookmarks = async () => {
     });
   }
 
-  return bookmarks;
+  const parsedBookmarks = BookmarkSupabaseSchema.parse(bookmarks);
+
+  return parsedBookmarks;
 };
 
 export const getBookmark = async ({ external_id }: GetBookmarkData) => {
@@ -161,7 +167,9 @@ export const getBookmark = async ({ external_id }: GetBookmarkData) => {
 
     const data = await res.json();
 
-    return data;
+    const parsedData = BookmarkFindSchema.parse(data);
+
+    return parsedData;
   } catch (err) {
     if (err instanceof Error) {
       toast.error(err.message);

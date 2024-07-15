@@ -2,7 +2,9 @@ GŁÓWNE WAŻNE
 
 Stworzenie generalnego dashboard. (WYNIKOWO)
 
-Stworzenie logiki bookmark.
+DO ZROBIENIA
+
+SPRÓBOWANIE PODZIELENIA NA SERIALE I FILMY
 
 OPCJONALNE
 
