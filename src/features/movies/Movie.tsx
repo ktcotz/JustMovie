@@ -1,10 +1,12 @@
 import { CustomLink } from "../ui/CustomLink";
 import { MovieBookmark } from "./MovieBookmark";
 import { MovieDescription } from "./MovieDescription";
+import { DashboardType } from "./MoviesDashboard";
 import { GeneralMovie } from "./schema/MovieSchema";
 
 type MovieProps = {
   inside?: boolean;
+  type: DashboardType;
 };
 
 export const Movie = ({
@@ -14,14 +16,14 @@ export const Movie = ({
   original_title,
   original_name,
   release_date,
-  media_type,
+  type,
   inside = true,
 }: GeneralMovie & MovieProps) => {
   const description = {
     title,
     release_date,
     original_name,
-    media_type,
+    type,
   };
 
   return (

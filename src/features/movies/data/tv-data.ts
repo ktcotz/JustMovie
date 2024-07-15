@@ -1,17 +1,17 @@
 import { MoviesTitle } from "../../../lib/i18n/i18n.types";
-import { MoviesCategory } from "../useMovies";
+import { TVCategory } from "../services/types";
 
-type MovieDashboard = {
+type TvDashboard = {
   id: number;
   title: MoviesTitle;
-  category: MoviesCategory;
+  category: TVCategory;
 };
 
-export const moviesDashboardData: MovieDashboard[] = [
+export const tvDashboardData: TvDashboard[] = [
   {
     id: 1,
     title: "movies.recommended",
-    category: "recommended",
+    category: "trending",
   },
   {
     id: 2,
@@ -25,8 +25,8 @@ export const moviesDashboardData: MovieDashboard[] = [
   },
   {
     id: 4,
-    title: "movies.horror",
-    category: "horror",
+    title: "movies.drama",
+    category: "drama",
   },
   {
     id: 5,
@@ -35,8 +35,8 @@ export const moviesDashboardData: MovieDashboard[] = [
   },
   {
     id: 6,
-    title: "movies.war",
-    category: "war",
+    title: "movies.kids",
+    category: "kids",
   },
   {
     id: 7,
@@ -45,12 +45,12 @@ export const moviesDashboardData: MovieDashboard[] = [
   },
   {
     id: 8,
-    title: "movies.fantasy",
-    category: "fantasy",
+    title: "movies.mystery",
+    category: "mystery",
   },
   {
     id: 9,
-    title: "movies.romance",
-    category: "romance",
+    title: "movies.family",
+    category: "family",
   },
 ] as const;

@@ -116,6 +116,10 @@
     "romance": "Romantyczne",
     "who": "Bez wieku",
     "movie": "Film",
+    "drama": "Dramat",
+    "kids": "Dla dzieci",
+    "family": "Rodzinne",
+    "mystery": "Tajemnicze",
     "tv-serie": "Serial"
   }
 }

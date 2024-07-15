@@ -116,6 +116,10 @@
     "romance": "Romance",
     "who": "PG",
     "movie": "Movie",
+    "drama": "Drama",
+    "kids": "Kids",
+    "family": "Family",
+    "mystery": "Mystery",
     "tv-serie": "TV Serie"
   }
 }

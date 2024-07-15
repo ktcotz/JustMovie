@@ -1,19 +1,22 @@
-import { MoviesCategory, useMovies } from "./useMovies";
+import { useMovies } from "./useMovies";
 import { Movie } from "./Movie";
 import { Spinner } from "../ui/Spinner";
 import { CustomLink } from "../ui/CustomLink";
 import { useMediaQuery } from "usehooks-ts";
 import { Wrapper } from "../ui/Wrapper";
-import { moviesDashboardData } from "./data/data";
+import { moviesDashboardData } from "./data/movie-data";
 import { useTranslation } from "react-i18next";
+import { DashboardType } from "./MoviesDashboard";
+import { MoviesCategory, TVCategory } from "./services/types";
 
 type MoviesProps = {
   title: (typeof moviesDashboardData)[number]["title"];
-  category: MoviesCategory;
+  category: MoviesCategory | TVCategory;
+  type: DashboardType;
 };
 
-export const Movies = ({ title, category }: MoviesProps) => {
-  const { data, isLoading } = useMovies({ category });
+export const Movies = ({ title, category, type }: MoviesProps) => {
+  const { data, isLoading } = useMovies({ category, type });
   const { t } = useTranslation();
   const matches = useMediaQuery("(max-width:1280px)");
 
@@ -33,7 +36,7 @@ export const Movies = ({ title, category }: MoviesProps) => {
         <h2 className="text-xl font-normal text-slate-300 sm:text-3xl">
           {t(title)}
         </h2>
-        <CustomLink to={`/dashboard/movies/${category}`} type="more">
+        <CustomLink to={`/dashboard/${type}/${category}`} type="more">
           {t("links.more")}
         </CustomLink>
       </div>
@@ -41,7 +44,9 @@ export const Movies = ({ title, category }: MoviesProps) => {
         <div className="grid gap-8 sm:grid-cols-2 sm:gap-4 md:grid-cols-3 lg:gap-8 xl:grid-cols-4">
           {data?.results
             .slice(MIN_RESULTS_LENGTH, MAX_RESULTS_LENGTH)
-            .map((movie) => <Movie key={movie.id} {...movie} inside={false} />)}
+            .map((movie) => (
+              <Movie key={movie.id} {...movie} inside={false} type={type} />
+            ))}
         </div>
       </Wrapper>
     </div>
