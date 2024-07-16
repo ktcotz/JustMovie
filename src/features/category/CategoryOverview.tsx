@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import { CustomLink } from "../ui/CustomLink";
 import { Spinner } from "../ui/Spinner";
 import { Tag } from "../ui/Tag";
@@ -9,6 +10,7 @@ import { useParamsCategory } from "./queries/useParamsCategory";
 export const CategoryOverview = () => {
   const { type, id } = useParamsCategory();
   const { data, isLoading } = useGetIndividual({ external_id: id, type });
+  const { t } = useTranslation();
 
   if (isLoading) return <Spinner />;
 
@@ -41,14 +43,16 @@ export const CategoryOverview = () => {
               category.original_name}
           </h1>
           <p className="mb-6 text-slate-400">
-            Popularity - {category.popularity}
+            {t("overview.popularity")} - {category.popularity}
           </p>
           <div className="mb-6">
             <CategoryRating vote_average={category.vote_average} />
           </div>
           <div className="mb-6 grid grid-cols-3 gap-8">
             <div className="flex flex-col gap-2">
-              <h2 className="font-medium text-slate-400">Year</h2>
+              <h2 className="font-medium text-slate-400">
+                {t("overview.year")}
+              </h2>
               <p className="font-bold text-slate-50">
                 {category.release_date
                   ? new Date(category.release_date).getFullYear()
@@ -57,18 +61,26 @@ export const CategoryOverview = () => {
             </div>
 
             <div className="flex flex-col gap-2">
-              <h2 className="font-medium text-slate-400">Language</h2>
+              <h2 className="font-medium text-slate-400">
+                {t("overview.language")}
+              </h2>
               <p className="font-bold text-slate-50">
-                {category.original_language === "en" ? "English" : "Polish"}
+                {category.original_language === "en"
+                  ? t("overview.english")
+                  : t("overview.polish")}
               </p>
             </div>
             <div className="flex flex-col gap-2">
-              <h2 className="font-medium text-slate-400">Length</h2>
+              <h2 className="font-medium text-slate-400">
+                {t("overview.length")}
+              </h2>
               <p className="font-bold text-slate-50">N/A</p>
             </div>
           </div>
           <div className="mb-12">
-            <h2 className="mb-4 font-medium text-slate-50">Genres</h2>
+            <h2 className="mb-4 font-medium text-slate-50">
+              {t("overview.genres")}
+            </h2>
             <div className="flex items-center gap-2">
               {category.genre_ids.map((id) => (
                 <Tag id={id} type={category.media_type} />
@@ -77,7 +89,9 @@ export const CategoryOverview = () => {
           </div>
           {category.overview && (
             <div>
-              <h2 className="mb-4 font-medium text-slate-50">Synopsis</h2>
+              <h2 className="mb-4 font-medium text-slate-50">
+                {t("overview.synopsis")}
+              </h2>
               <p>{category.overview}</p>
             </div>
           )}
