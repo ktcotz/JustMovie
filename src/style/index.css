@@ -41,3 +41,44 @@
 .react-multi-carousel-track {
   gap: 1rem;
 }
+
+.rr--space-sm .rr--svg {
+  padding: 0;
+}
+
+.custom-rating .rr--svg,
+.rr--has-stroke .rr--on .rr--svg {
+  stroke: #fff;
+}
+
+.custom-rating .rr--hf-svg-on,
+.rr--has-stroke .rr--on .rr--svg {
+  fill: #fff;
+}
+
+.custom-rating .rr--svg-stop-2 {
+  stop-color: #000;
+}
+
+.custom-rating .rr--svg-stop-1 {
+  stop-color: #fff;
+}
+
+.custom-rating .rr--hf-svg-off {
+  fill: #000;
+}
+
+.rr--has-stroke .rr--off .rr--svg {
+  stroke: #fff;
+  fill: #000;
+}
+
+.custom-rating .rr--box {
+  width: auto;
+  flex-grow: 0;
+}
+
+.custom-rating .rr--svg {
+  width: 1rem;
+  height: 1rem;
+}

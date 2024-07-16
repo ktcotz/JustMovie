@@ -12,6 +12,7 @@ export default {
       },
       colors: {
         primary: "#FC4747",
+        tag: "#101217",
       },
       ringOffsetColor: {
         primary: "#10141E",
