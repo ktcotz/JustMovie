@@ -16,6 +16,7 @@ import { DashboardBookmarks } from "./pages/Dashboard/DashboardBookmarks";
 import { DashboardUserSettings } from "./pages/Dashboard/DashboardUserSettings";
 import { DashboardHome } from "./pages/Dashboard/DashboardHome";
 import { DashboardSingleOvierview } from "./pages/Dashboard/DashboardSingleOverview";
+import { DashboardSeeMore } from "./pages/Dashboard/DashboardSeeMore";
 
 const router = createBrowserRouter([
   {
@@ -81,6 +82,10 @@ const router = createBrowserRouter([
             <DashboardUserSettings />
           </FormContextProvider>
         ),
+      },
+      {
+        path: RouterRoutes.DASHBOARD_SEE_MORE,
+        element: <DashboardSeeMore />,
       },
     ],
   },

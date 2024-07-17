@@ -21,10 +21,13 @@ import {
 } from "../schema/BookmarkSchema";
 import { User } from "@supabase/supabase-js";
 
-export const getMoviesByCategory = async ({ category }: GetByCategory) => {
+export const getMoviesByCategory = async ({
+  category,
+  page,
+}: GetByCategory) => {
   try {
     const res = await fetch(
-      MOVIES_API_CONFIG_ROUTES[category as MoviesCategory],
+      `${page ? `${MOVIES_API_CONFIG_ROUTES[category as MoviesCategory]}&page=${page}` : MOVIES_API_CONFIG_ROUTES[category as MoviesCategory]}`,
       {
         method: "GET",
         headers: {
@@ -50,15 +53,18 @@ export const getMoviesByCategory = async ({ category }: GetByCategory) => {
   }
 };
 
-export const getSerieByCategory = async ({ category }: GetByCategory) => {
+export const getSerieByCategory = async ({ category, page }: GetByCategory) => {
   try {
-    const res = await fetch(SERIES_API_CONFIG_ROUTES[category as TVCategory], {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    const res = await fetch(
+      `${page ? `${SERIES_API_CONFIG_ROUTES[category as TVCategory]}&page=${page}` : SERIES_API_CONFIG_ROUTES[category as TVCategory]}`,
+      {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+        },
       },
-    });
+    );
 
     if (!res.ok) {
       throw new Error(`Error : ${res.statusText}`);

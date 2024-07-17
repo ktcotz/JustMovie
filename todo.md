@@ -1,6 +1,9 @@
-DO ZROBIENIA 17.07.2024
+DO ZROBIENIA 18.07.2024
 
-ROBIENIE STRON SEE MORE I PAGINACJA.
+Strona query.
+Sprawdzenie poprawności całej strony.
+Sprawdzenie ligthouse na stronach.
+Sprawdzenie flow.
 
 OPCJONALNE
 
