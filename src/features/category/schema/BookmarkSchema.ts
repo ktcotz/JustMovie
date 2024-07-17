@@ -5,6 +5,7 @@ export const BookmarkSchema = z.object({
   type: z.enum(["movie", "tv"]),
   external_id: z.string(),
   custom_id: z.number(),
+  user_id: z.string(),
 });
 
 export const BookmarkSupabaseSchema = z.array(

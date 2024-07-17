@@ -13,7 +13,7 @@ export const DashboardUserSettings = () => {
     return <Spinner />;
   }
 
-  const fullName = `${user?.user_metadata.name} ${user?.user_metadata.surname}`;
+  const fullName = `${user?.user_metadata.name || ""} ${user?.user_metadata.surname || ""}`;
   const userName = fullName.length >= 3 ? fullName : t("settings.user-name");
 
   return (

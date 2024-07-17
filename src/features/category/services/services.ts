@@ -19,6 +19,7 @@ import {
   BookmarkFindSchema,
   BookmarkSupabaseSchema,
 } from "../schema/BookmarkSchema";
+import { User } from "@supabase/supabase-js";
 
 export const getMoviesByCategory = async ({ category }: GetByCategory) => {
   try {
@@ -99,10 +100,12 @@ export const manageBookmark = async ({
   custom_id,
   external_id,
   type,
+  user_id,
 }: Bookmark) => {
   const { data: bookmarks, error: getError } = await supabase
     .from("bookmarks")
     .select()
+    .eq("user_id", user_id)
     .eq("custom_id", custom_id);
 
   if (getError) {
@@ -112,12 +115,16 @@ export const manageBookmark = async ({
   }
 
   if (bookmarks && bookmarks.length > 0) {
-    return await supabase.from("bookmarks").delete().eq("custom_id", custom_id);
+    return await supabase
+      .from("bookmarks")
+      .delete()
+      .eq("user_id", user_id)
+      .eq("custom_id", custom_id);
   }
 
   const { data, error } = await supabase
     .from("bookmarks")
-    .insert([{ custom_id, external_id, type }])
+    .insert([{ custom_id, external_id, type, user_id }])
     .select();
 
   if (error) {
@@ -129,10 +136,11 @@ export const manageBookmark = async ({
   return data;
 };
 
-export const getBookmarks = async () => {
+export const getBookmarks = async ({ user_id }: { user_id: User["id"] }) => {
   const { data: bookmarks, error } = await supabase
     .from("bookmarks")
-    .select("*");
+    .select("*")
+    .eq("user_id", user_id);
 
   if (error) {
     throw new CustomError({

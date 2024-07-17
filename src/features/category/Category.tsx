@@ -14,7 +14,6 @@ export const Category = ({
   id,
   backdrop_path,
   title,
-  original_title,
   original_name,
   release_date,
   type,
@@ -29,17 +28,17 @@ export const Category = ({
     type,
   };
 
+  const image = `https://image.tmdb.org/t/p/w500/${backdrop_path}`;
+
   return (
     <>
       <div className="relative overflow-hidden rounded-md transition-all hover:rotate-1">
         <CustomLink to={`/dashboard/${type}/${data?.imdb_id}`}>
-          <div className={`${inside ? "opacity-35" : "opacity-100"}`}>
-            <img
-              src={`https://image.tmdb.org/t/p/w500/${backdrop_path}`}
-              alt={title || original_title}
-              width={500}
-              height={281}
-            />
+          <div
+            className={`${inside ? "opacity-35" : "opacity-100"} h-[281px] w-[500px] bg-cover`}
+            style={{ backgroundImage: `url(${image})` }}
+          >
+            &nbsp;
           </div>
           {inside && (
             <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4">

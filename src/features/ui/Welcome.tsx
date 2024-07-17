@@ -6,7 +6,7 @@ export const Welcome = () => {
   const { user } = useGetUser();
   const { t } = useTranslation();
 
-  const name = (user as User).user_metadata?.name;
+  const name = (user as User).user_metadata?.name || t("settings.user-name");
 
   return (
     <h1 className="mb-6 text-xl">

@@ -4,6 +4,8 @@ import { useGetBookmarks } from "./queries/useGetBookmarks";
 import { useManageBookmark } from "./mutations/useManageBookmark";
 import { ExternalID } from "./schema/ExternalIDSchema";
 import { useTranslation } from "react-i18next";
+import { useGetUser } from "../authentication/mutations/useGetUser";
+import { User } from "@supabase/supabase-js";
 
 type CategoryBookmarkProps = {
   id: number;
@@ -15,9 +17,11 @@ export type Bookmark = {
   custom_id: number;
   type: DashboardType;
   external_id: string;
+  user_id: User["id"];
 };
 
 export const CategoryBookmark = ({ id, type, data }: CategoryBookmarkProps) => {
+  const { user } = useGetUser();
   const { bookmarks } = useGetBookmarks();
   const { manage } = useManageBookmark();
   const { t } = useTranslation();
@@ -25,7 +29,12 @@ export const CategoryBookmark = ({ id, type, data }: CategoryBookmarkProps) => {
   const manageBookmark = () => {
     if (!data.imdb_id) return;
 
-    manage({ custom_id: id, type, external_id: data.imdb_id });
+    manage({
+      custom_id: id,
+      type,
+      external_id: data.imdb_id,
+      user_id: (user as User).id,
+    });
   };
 
   const isBookmarked = bookmarks?.filter(
