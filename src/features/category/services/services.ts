@@ -20,6 +20,7 @@ import {
   BookmarkSupabaseSchema,
 } from "../schema/BookmarkSchema";
 import { User } from "@supabase/supabase-js";
+import { GetByQueryCategory } from "../queries/useGetQueryCategory";
 
 export const getMoviesByCategory = async ({
   category,
@@ -57,6 +58,38 @@ export const getSerieByCategory = async ({ category, page }: GetByCategory) => {
   try {
     const res = await fetch(
       `${page ? `${SERIES_API_CONFIG_ROUTES[category as TVCategory]}&page=${page}` : SERIES_API_CONFIG_ROUTES[category as TVCategory]}`,
+      {
+        method: "GET",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+        },
+      },
+    );
+
+    if (!res.ok) {
+      throw new Error(`Error : ${res.statusText}`);
+    }
+
+    const data = await res.json();
+
+    const parsedData = CategoryResponseSuccessfulSchema.parse(data);
+
+    return parsedData;
+  } catch (err) {
+    if (err instanceof Error) {
+      toast.error(err.message);
+    }
+  }
+};
+
+export const getCategoryByQuery = async ({
+  query,
+  page,
+}: GetByQueryCategory) => {
+  try {
+    const res = await fetch(
+      `${API}/search/multi?query=${query}&language=${language}&page=${page}`,
       {
         method: "GET",
         headers: {

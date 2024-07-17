@@ -11,5 +11,6 @@ export enum RouterRoutes {
   DASHBOARD_USER_SETTINGS = "settings",
   DASHBOARD_SINGLE_OVERVIEW = ":type/:id",
   DASHBOARD_SEE_MORE = ":category",
+  DASHBOARD_SEARCH = "search",
   NOT_FOUND = "*",
 }

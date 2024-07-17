@@ -12,7 +12,7 @@ export const CategorySchema = z.object({
   origin_country: z.array(z.string()).optional(),
   overview: z.string(),
   popularity: z.number(),
-  poster_path: z.string(),
+  poster_path: z.string().nullable(),
   release_date: z.string().optional(),
   title: z.string().optional(),
   video: z.boolean().optional(),
@@ -26,8 +26,6 @@ export const CategoryResponseSuccessfulSchema = z.object({
   total_pages: z.number(),
   total_results: z.number(),
 });
-
-
 
 export type Category = z.infer<typeof CategorySchema>;
 export type CategoryResponseSuccessful = z.infer<

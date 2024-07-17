@@ -7,7 +7,6 @@ import { RouterRoutes } from "../../types/routes";
 export const DashboardSeeMore = () => {
   const query = useUrlPaginatedCategory();
   const navigate = useNavigate();
-  console.log(query);
 
   useEffect(() => {
     if (query === null) {

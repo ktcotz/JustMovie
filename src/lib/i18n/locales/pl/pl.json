@@ -173,5 +173,8 @@
     "talk": "Rozmowy w grupie",
     "war": "Wojenny & Polityczny",
     "western": "Dziki zachód"
+  },
+  "search": {
+    "by": "Wyszukiwanie dla"
   }
 }
