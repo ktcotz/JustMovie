@@ -21,7 +21,10 @@ export const Avatar = () => {
             onClick={() => setShowContent((prevShowState) => !prevShowState)}
           >
             <img
-              src={user.user_metadata?.avatar}
+              src={
+                user.user_metadata?.avatar ||
+                "https://lcibdfunhrzjmuytpeyq.supabase.co/storage/v1/object/public/avatars/user.png"
+              }
               alt="User avatar"
               width={32}
               height={32}

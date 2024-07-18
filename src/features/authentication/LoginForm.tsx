@@ -18,6 +18,10 @@ export const LoginForm = () => {
     reset,
   } = useForm<LoginSchema>({
     resolver: zodResolver(LoginFormSchema),
+    defaultValues: {
+      email: "test@test.com",
+      password: "123456",
+    },
   });
   const { login, isLogin, loginError } = useLogin();
   const { t } = useTranslation();

@@ -25,7 +25,7 @@ export const AccordionItem = ({
   const hiddenBase =
     "max-h-0 bg-slate-800 text-slate-50 opacity-0 transition-all";
 
-  const openBase = "max-h-[100px] opacity-100 p-4";
+  const openBase = "max-h-[250px] opacity-100 p-4";
 
   const hiddenClsx = twMerge(
     hiddenBase,
