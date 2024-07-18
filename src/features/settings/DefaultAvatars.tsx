@@ -25,9 +25,12 @@ export const DefaultAvatars = ({ onSetPreview }: DefaultAvatarsProps) => {
           .map((avatar) => {
             const url = `${supabaseUrl}/storage/v1/object/public/avatars/default/${avatar.name}`;
             return (
-              <Button modifier="avatar" onClick={() => onSetPreview(url)}>
+              <Button
+                modifier="avatar"
+                onClick={() => onSetPreview(url)}
+                key={avatar.id}
+              >
                 <img
-                  key={avatar.id}
                   src={url}
                   alt={avatar.name}
                   width={48}

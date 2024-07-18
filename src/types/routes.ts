@@ -10,6 +10,7 @@ export enum RouterRoutes {
   DASHBOARD_BOOKMARKS = "bookmarks",
   DASHBOARD_USER_SETTINGS = "settings",
   DASHBOARD_SINGLE_OVERVIEW = ":type/:id",
+  DASHBOARD_SINGLE_OVERVIEW_VIDEO = ":type/:id/video",
   DASHBOARD_SEE_MORE = ":category",
   DASHBOARD_SEARCH = "search",
   NOT_FOUND = "*",

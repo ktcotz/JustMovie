@@ -18,6 +18,7 @@ import { DashboardHome } from "./pages/Dashboard/DashboardHome";
 import { DashboardSingleOvierview } from "./pages/Dashboard/DashboardSingleOverview";
 import { DashboardSeeMore } from "./pages/Dashboard/DashboardSeeMore";
 import { DashboardSearch } from "./pages/Dashboard/DashboardSearch";
+import { DashboardVideo } from "./pages/Dashboard/DashboardVideo";
 
 const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
       {
         path: RouterRoutes.DASHBOARD_SINGLE_OVERVIEW,
         element: <DashboardSingleOvierview />,
+      },
+      {
+        path: RouterRoutes.DASHBOARD_SINGLE_OVERVIEW_VIDEO,
+        element: <DashboardVideo />,
       },
       {
         path: RouterRoutes.DASHBOARD_MOVIES,

@@ -27,9 +27,16 @@ export const DashboardUserSettings = () => {
         <div className="max-w-[350px]">
           <UserDataForm />
         </div>
-        <span className="mb-8 block h-[1px] w-full bg-slate-700">&nbsp;</span>
+
         <div className="max-w-[350px]">
-          <UserPasswordForm />
+          {user?.user_metadata.type === "test" ? null : (
+            <>
+              <span className="mb-8 block h-[1px] w-full bg-slate-700">
+                &nbsp;
+              </span>
+              <UserPasswordForm />
+            </>
+          )}
         </div>
         <span className="block h-[1px] w-full bg-slate-700">&nbsp;</span>
         <UserChangeAvatar />

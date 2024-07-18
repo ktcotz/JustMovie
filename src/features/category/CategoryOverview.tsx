@@ -6,22 +6,31 @@ import { Wrapper } from "../ui/Wrapper";
 import { CategoryRating } from "./CategoryRating";
 import { useGetIndividual } from "./queries/useGetIndividual";
 import { useParamsCategory } from "./queries/useParamsCategory";
+import { useCategoryVideo } from "./queries/useCategoryVideo";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
+import { RouterRoutes } from "../../types/routes";
 
 export const CategoryOverview = () => {
   const { type, id } = useParamsCategory();
+  const navigate = useNavigate();
   const { data: category, isLoading } = useGetIndividual({ id, type });
+  const { data: video } = useCategoryVideo({ id });
   const { t } = useTranslation();
 
-  if (isLoading) return <Spinner />;
+  useEffect(() => {
+    if (category === undefined && !isLoading) {
+      navigate(RouterRoutes.DASHBOARD);
+    }
+  }, [category, navigate, isLoading]);
 
+  if (isLoading) return <Spinner />;
   if (!category) return null;
 
   const image = `https://image.tmdb.org/t/p/original${category.backdrop_path}`;
 
-  const genres_ids = category.genres.map((genre) => genre.id);
-  const validTagline = !category.tagline.startsWith("http");
-
-  console.log(category);
+  const genres_ids = category!.genres.map((genre) => genre.id);
+  const validTagline = !category!.tagline.startsWith("http");
 
   return (
     <Wrapper>
@@ -30,13 +39,7 @@ export const CategoryOverview = () => {
           className={`relative h-[200px] w-full justify-self-center rounded-md bg-cover bg-center sm:h-[350px] sm:w-3/5 md:h-[530px] md:w-full lg:w-4/5`}
           style={{ backgroundImage: `url(${image})` }}
         >
-          {category.video && (
-            <div className="absolute left-0 top-0 flex h-full w-full items-center justify-center bg-black/90">
-              <CustomLink to="video" aria-label="Check video">
-                <img src="./../../images/icon-play.svg" alt="" />
-              </CustomLink>
-            </div>
-          )}
+          &nbsp;
         </div>
 
         <div>
@@ -47,6 +50,15 @@ export const CategoryOverview = () => {
           </h1>
           {validTagline && (
             <p className="mb-6 text-slate-400">{category.tagline}</p>
+          )}
+          {video && video.results.length > 0 && (
+            <CustomLink
+              to={`video?id=${id}`}
+              aria-label="Check video"
+              type="video"
+            >
+              <img src="./../../images/icon-play.svg" alt="" />
+            </CustomLink>
           )}
           <div className="mb-6">
             <CategoryRating vote_average={category.vote_average} />

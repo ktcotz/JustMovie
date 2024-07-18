@@ -6,13 +6,14 @@ import { DefaultAvatars } from "./DefaultAvatars";
 import { useUpdateAvatar } from "./mutations/useUpdateAvatar";
 import { supabaseUrl } from "../../lib/supabase/supabase";
 import { useTranslation } from "react-i18next";
+import { Spinner } from "../ui/Spinner";
 
 export const UserChangeAvatar = () => {
   const { user } = useGetUser();
 
   const [preview, setPreview] = useState<string | undefined>(undefined);
   const [updateAvatar, setUpdateAvatar] = useState<File | null>(null);
-  const { update } = useUpdateAvatar();
+  const { update, isUpdating } = useUpdateAvatar();
   const { t } = useTranslation();
 
   const setAvatarPreview = (url: string) => {
@@ -61,8 +62,12 @@ export const UserChangeAvatar = () => {
           <Button onClick={() => setPreview(undefined)} modifier="settings">
             {t("settings.not-save-avatar")}
           </Button>
-          <Button modifier="settings" onClick={updateAvatarFn}>
-            {t("settings.save-avatar")}
+          <Button
+            modifier="settings"
+            onClick={updateAvatarFn}
+            disabled={isUpdating}
+          >
+            {isUpdating ? <Spinner /> : t("settings.save-avatar")}
           </Button>
         </div>
       )}

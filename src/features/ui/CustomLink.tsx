@@ -8,7 +8,8 @@ type CustomLinkType =
   | "secondary"
   | "inline"
   | "nav"
-  | "more";
+  | "more"
+  | "video";
 
 type CustomLinkProps = {
   children: ReactNode;
@@ -32,6 +33,7 @@ export const CustomLink = ({
       "border-b border-transparent text-red-400 hover:text-red-300 transition font-semibold focus:outline-none focus:border-current",
     nav: "flex items-center justify-center",
     more: "hover:text-red-500 transition",
+    video: "bg-slate-800 py-2 px-6 inline-block hover:bg-slate-700 transition",
   };
 
   const className = twMerge(base, type && modifier[type]);

@@ -20,6 +20,8 @@ import { GetIndividualData } from "../queries/useGetIndividual";
 import { BookmarkSupabaseSchema } from "../schema/BookmarkSchema";
 import { User } from "@supabase/supabase-js";
 import { GetByQueryCategory } from "../queries/useGetQueryCategory";
+import { GetVideoData } from "../queries/useCategoryVideo";
+import { VideoSuccessfulResponseSchema } from "../schema/VideoSchema";
 
 export const getMoviesByCategory = async ({
   category,
@@ -171,27 +173,41 @@ export const getBookmarks = async ({ user_id }: { user_id: User["id"] }) => {
 };
 
 export const getIndividual = async ({ id, type }: GetIndividualData) => {
-  try {
-    const res = await fetch(`${API}/${type}/${id}?language=${language}`, {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
-      },
-    });
+  const res = await fetch(`${API}/${type}/${id}?language=${language}`, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    },
+  });
 
-    if (!res.ok) {
-      throw new Error(`Error : ${res.statusText}`);
-    }
-
-    const data = await res.json();
-
-    const parsedData = DetailsCategorySchema.parse(data);
-
-    return parsedData;
-  } catch (err) {
-    if (err instanceof Error) {
-      toast.error(err.message);
-    }
+  if (!res.ok) {
+    throw new Error(`Error : ${res.statusText}`);
   }
+
+  const data = await res.json();
+
+  const parsedData = DetailsCategorySchema.parse(data);
+
+  return parsedData;
+};
+
+export const getVideo = async ({ id }: GetVideoData) => {
+  const res = await fetch(`${API}/movie/${id}/videos?language=${language}`, {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
+    },
+  });
+
+  if (!res.ok) {
+    throw new Error(`Error : ${res.statusText}`);
+  }
+
+  const data = await res.json();
+
+  const parsedData = VideoSuccessfulResponseSchema.parse(data);
+
+  return parsedData;
 };
