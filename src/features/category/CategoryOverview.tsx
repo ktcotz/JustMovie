@@ -9,16 +9,19 @@ import { useParamsCategory } from "./queries/useParamsCategory";
 
 export const CategoryOverview = () => {
   const { type, id } = useParamsCategory();
-  const { data, isLoading } = useGetIndividual({ external_id: id, type });
+  const { data: category, isLoading } = useGetIndividual({ id, type });
   const { t } = useTranslation();
 
   if (isLoading) return <Spinner />;
 
-  if (!data) return null;
-
-  const category = data[0];
+  if (!category) return null;
 
   const image = `https://image.tmdb.org/t/p/original${category.backdrop_path}`;
+
+  const genres_ids = category.genres.map((genre) => genre.id);
+  const validTagline = !category.tagline.startsWith("http");
+
+  console.log(category);
 
   return (
     <Wrapper>
@@ -42,9 +45,9 @@ export const CategoryOverview = () => {
               category.original_title ||
               category.original_name}
           </h1>
-          <p className="mb-6 text-slate-400">
-            {t("overview.popularity")} - {category.popularity}
-          </p>
+          {validTagline && (
+            <p className="mb-6 text-slate-400">{category.tagline}</p>
+          )}
           <div className="mb-6">
             <CategoryRating vote_average={category.vote_average} />
           </div>
@@ -70,20 +73,32 @@ export const CategoryOverview = () => {
                   : t("overview.polish")}
               </p>
             </div>
-            <div className="flex flex-col gap-2">
-              <h2 className="font-medium text-slate-400">
-                {t("overview.length")}
-              </h2>
-              <p className="font-bold text-slate-50">N/A</p>
-            </div>
+            {category.runtime && (
+              <div className="flex flex-col gap-2">
+                <h2 className="font-medium text-slate-400">
+                  {t("overview.length")}
+                </h2>
+                <p className="font-bold text-slate-50">{category.runtime}min</p>
+              </div>
+            )}
+            {category.number_of_seasons && (
+              <div className="flex flex-col gap-2">
+                <h2 className="font-medium text-slate-400">
+                  {t("overview.length")}
+                </h2>
+                <p className="font-bold text-slate-50">
+                  {category.number_of_seasons} seasons
+                </p>
+              </div>
+            )}
           </div>
           <div className="mb-12">
             <h2 className="mb-4 font-medium text-slate-50">
               {t("overview.genres")}
             </h2>
             <div className="flex items-center gap-2">
-              {category.genre_ids.map((id) => (
-                <Tag id={id} type={category.media_type} />
+              {genres_ids.map((id) => (
+                <Tag key={id} id={id} type={type} />
               ))}
             </div>
           </div>

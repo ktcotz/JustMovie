@@ -3,7 +3,6 @@ import { CategoryBookmark } from "./CategoryBookmark";
 import { MovieDescription } from "./CategoryDescription";
 import { DashboardType } from "./CategoryDashboard";
 import { Category as CategoryData } from "./schema/CategorySchema";
-import { useGetExternalID } from "./queries/useGetExternalID";
 
 type MovieProps = {
   inside?: boolean;
@@ -19,8 +18,6 @@ export const Category = ({
   type,
   inside = true,
 }: CategoryData & MovieProps) => {
-  const { data } = useGetExternalID({ id, type });
-
   const description = {
     title,
     release_date,
@@ -33,7 +30,7 @@ export const Category = ({
   return (
     <>
       <div className="relative overflow-hidden rounded-md transition-all hover:rotate-1">
-        <CustomLink to={`/dashboard/${type}/${data?.imdb_id}`}>
+        <CustomLink to={`/dashboard/${type}/${id}`}>
           <div
             className={`${inside ? "opacity-35" : "opacity-100"} h-[281px] w-[500px] bg-cover`}
             style={{ backgroundImage: `url(${image})` }}
@@ -46,7 +43,7 @@ export const Category = ({
             </div>
           )}
         </CustomLink>
-        {data && <CategoryBookmark id={id} type={type} data={data} />}
+        <CategoryBookmark id={id} type={type} />
         {!inside && (
           <div className="mt-6">
             <MovieDescription description={description} />

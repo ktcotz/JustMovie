@@ -7,18 +7,17 @@ import {
   MOVIES_API_CONFIG_ROUTES,
   SERIES_API_CONFIG_ROUTES,
 } from "./config";
-import { CategoryResponseSuccessfulSchema } from "../schema/CategorySchema";
+import {
+  CategoryResponseSuccessfulSchema,
+  DetailsCategorySchema,
+} from "../schema/CategorySchema";
 import { MoviesCategory, TVCategory } from "./types";
-import { GetExternalID } from "../queries/useGetExternalID";
-import { ExternalIDSchema } from "../schema/ExternalIDSchema";
+
 import { supabase } from "../../../lib/supabase/supabase";
 import { CustomError } from "../../../utils/CustomError";
 import { Bookmark } from "../CategoryBookmark";
 import { GetIndividualData } from "../queries/useGetIndividual";
-import {
-  BookmarkFindSchema,
-  BookmarkSupabaseSchema,
-} from "../schema/BookmarkSchema";
+import { BookmarkSupabaseSchema } from "../schema/BookmarkSchema";
 import { User } from "@supabase/supabase-js";
 import { GetByQueryCategory } from "../queries/useGetQueryCategory";
 
@@ -115,29 +114,8 @@ export const getCategoryByQuery = async ({
   }
 };
 
-export const getExternalID = async ({ id, type }: GetExternalID) => {
-  const res = await fetch(`${API}/${type}/${id}/external_ids`, {
-    method: "GET",
-    headers: {
-      accept: "application/json",
-      Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
-    },
-  });
-
-  if (!res.ok) {
-    throw new Error(`Error : ${res.statusText}`);
-  }
-
-  const data = await res.json();
-
-  const parsedData = ExternalIDSchema.parse(data);
-
-  return parsedData;
-};
-
 export const manageBookmark = async ({
   custom_id,
-  external_id,
   type,
   user_id,
 }: Bookmark) => {
@@ -163,7 +141,7 @@ export const manageBookmark = async ({
 
   const { data, error } = await supabase
     .from("bookmarks")
-    .insert([{ custom_id, external_id, type, user_id }])
+    .insert([{ custom_id, type, user_id }])
     .select();
 
   if (error) {
@@ -192,21 +170,15 @@ export const getBookmarks = async ({ user_id }: { user_id: User["id"] }) => {
   return parsedBookmarks;
 };
 
-export const getIndividual = async ({
-  external_id,
-  type,
-}: GetIndividualData) => {
+export const getIndividual = async ({ id, type }: GetIndividualData) => {
   try {
-    const res = await fetch(
-      `${API}/find/${external_id}?external_source=imdb_id&language=${language}`,
-      {
-        method: "GET",
-        headers: {
-          accept: "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
-        },
+    const res = await fetch(`${API}/${type}/${id}?language=${language}`, {
+      method: "GET",
+      headers: {
+        accept: "application/json",
+        Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_KEY}`,
       },
-    );
+    });
 
     if (!res.ok) {
       throw new Error(`Error : ${res.statusText}`);
@@ -214,18 +186,16 @@ export const getIndividual = async ({
 
     const data = await res.json();
 
-    const parsedData = BookmarkFindSchema.parse(data);
+    console.log(data);
 
-    if (type === "movie" && parsedData) {
-      return parsedData.movie_results;
-    }
+    const parsedData = DetailsCategorySchema.parse(data);
 
-    if (type === "tv" && parsedData) {
-      return parsedData.tv_results;
-    }
+    return parsedData;
   } catch (err) {
     if (err instanceof Error) {
       toast.error(err.message);
     }
   }
 };
+
+getIndividual({ id: "1048241", type: "movie" });
