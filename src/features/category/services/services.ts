@@ -186,8 +186,6 @@ export const getIndividual = async ({ id, type }: GetIndividualData) => {
 
     const data = await res.json();
 
-    console.log(data);
-
     const parsedData = DetailsCategorySchema.parse(data);
 
     return parsedData;
@@ -197,5 +195,3 @@ export const getIndividual = async ({ id, type }: GetIndividualData) => {
     }
   }
 };
-
-getIndividual({ id: "1048241", type: "movie" });

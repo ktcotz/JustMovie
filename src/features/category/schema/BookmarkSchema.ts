@@ -3,7 +3,7 @@ import { CategorySchema } from "./CategorySchema";
 
 export const BookmarkSchema = z.object({
   type: z.enum(["movie", "tv"]),
-  external_id: z.string(),
+  external_id: z.string().nullable(),
   custom_id: z.number(),
   user_id: z.string(),
 });

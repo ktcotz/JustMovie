@@ -3,17 +3,24 @@ import { DashboardType } from "./CategoryDashboard";
 import { useGetIndividual } from "./queries/useGetIndividual";
 
 type BookmarkProps = {
-  external_id: string;
   custom_id: number;
   type: DashboardType;
 };
 
-export const Bookmark = ({ external_id, type }: BookmarkProps) => {
-  const { data } = useGetIndividual({ external_id, type });
+export const Bookmark = ({ custom_id, type }: BookmarkProps) => {
+  const { data } = useGetIndividual({ id: String(custom_id), type });
 
-  console.log(data);
+  if (!data) return null;
 
-  return data?.map((movie) => (
-    <Category key={movie.id} {...movie} type={type} />
-  ));
+  const genre_ids = data.genres.map((genre) => genre.id);
+
+  return (
+    <Category
+      key={data.id}
+      {...data}
+      genre_ids={genre_ids}
+      type={type}
+      poster_path=""
+    />
+  );
 };
