@@ -25,8 +25,12 @@ export const LanguageSwitcher = () => {
         className="rounded-sm bg-transparent px-10 py-2 text-lg transition focus:outline-none focus:ring focus:ring-slate-50"
         onChange={(e) => changeLanguage(e.target.value)}
       >
-        <option value="pl">Polski</option>
-        <option value="en">English</option>
+        <option value="pl" className="text-slate-900">
+          Polski
+        </option>
+        <option value="en" className="text-slate-900">
+          English
+        </option>
       </select>
     </div>
   );
