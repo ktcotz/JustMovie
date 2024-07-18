@@ -1,6 +1,6 @@
 import toast from "react-hot-toast";
 
-import { GetByCategory } from "../mutations/useCategory";
+import { GetByCategory } from "../queries/useCategory";
 import {
   API,
   language,

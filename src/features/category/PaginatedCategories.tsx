@@ -1,4 +1,4 @@
-import { useCategory } from "./mutations/useCategory";
+import { useCategory } from "./queries/useCategory";
 import { Spinner } from "../ui/Spinner";
 import { Category } from "./Category";
 import { Pagination } from "../ui/Pagination";
