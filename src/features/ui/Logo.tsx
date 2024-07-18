@@ -10,7 +10,7 @@ export const Logo = ({ shouldTextBeVisible = true }: LogoProps) => {
     <CustomLink to={RouterRoutes.HOME} type="logo">
       <img
         src="./../images/logo.svg"
-        alt="Just Movie"
+        alt=""
         width={33}
         height={27}
         title="Just Movie"
