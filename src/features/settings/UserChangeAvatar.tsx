@@ -25,6 +25,7 @@ export const UserChangeAvatar = () => {
       avatarFile: updateAvatar,
       bucket_default: preview?.startsWith(supabaseUrl) ? preview : "",
     });
+    setPreview
   };
 
   const { getRootProps, getInputProps } = useDropzone({
