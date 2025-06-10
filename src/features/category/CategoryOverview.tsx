@@ -1,6 +1,5 @@
 import { useTranslation } from "react-i18next";
 import { CustomLink } from "../ui/CustomLink";
-import { Spinner } from "../ui/Spinner";
 import { Tag } from "../ui/Tag";
 import { Wrapper } from "../ui/Wrapper";
 import { CategoryRating } from "./CategoryRating";
