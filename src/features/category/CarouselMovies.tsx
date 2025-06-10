@@ -2,8 +2,8 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { useCategory } from "./queries/useCategory";
 import { Category } from "./Category";
-import { Spinner } from "../ui/Spinner";
 import { useTranslation } from "react-i18next";
+import { MovieSkeleton } from "./MovieSkeleton";
 
 export const CarouselMovies = () => {
   const { t } = useTranslation();
@@ -14,8 +14,8 @@ export const CarouselMovies = () => {
 
   if (isLoading)
     return (
-      <div className="flex items-center justify-center p-4">
-        <Spinner />
+      <div className="flex items-center justify-center space-x-8 p-4">
+        <MovieSkeleton />
       </div>
     );
 

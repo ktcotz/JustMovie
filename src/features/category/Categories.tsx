@@ -1,6 +1,5 @@
 import { useCategory } from "./queries/useCategory";
 import { Category } from "./Category";
-import { Spinner } from "../ui/Spinner";
 import { CustomLink } from "../ui/CustomLink";
 import { useMediaQuery } from "usehooks-ts";
 import { Wrapper } from "../ui/Wrapper";
@@ -8,6 +7,7 @@ import { moviesDashboardData } from "./data/movie-data";
 import { useTranslation } from "react-i18next";
 import { DashboardType } from "./CategoryDashboard";
 import { MoviesCategory, TVCategory } from "./services/types";
+import { MovieSkeleton } from "./MovieSkeleton";
 
 type MoviesProps = {
   title: (typeof moviesDashboardData)[number]["title"];
@@ -22,8 +22,8 @@ export const Movies = ({ title, category, type }: MoviesProps) => {
 
   if (isLoading)
     return (
-      <div className="flex items-center justify-center p-4">
-        <Spinner />
+      <div className="flex items-center justify-center space-x-8 p-4">
+        <MovieSkeleton />
       </div>
     );
 

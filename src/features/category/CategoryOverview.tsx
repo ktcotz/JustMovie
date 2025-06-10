@@ -10,6 +10,7 @@ import { useCategoryVideo } from "./queries/useCategoryVideo";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { RouterRoutes } from "../../types/routes";
+import { OverviewSkeleton } from "./OverviewSkeleton";
 
 export const CategoryOverview = () => {
   const { type, id } = useParamsCategory();
@@ -24,7 +25,12 @@ export const CategoryOverview = () => {
     }
   }, [category, navigate, isLoading]);
 
-  if (isLoading) return <Spinner />;
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center py-8">
+        <OverviewSkeleton />
+      </div>
+    );
   if (!category) return null;
 
   const image = `https://image.tmdb.org/t/p/original${category.backdrop_path}`;
