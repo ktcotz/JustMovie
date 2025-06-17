@@ -35,16 +35,17 @@ export const Hero = ({ children }: HeroProps) => {
           </div>
           <picture>
             <source
-              srcSet="./images/hero-small.png"
+              srcSet="./images/hero-small.webp"
               media="(max-width:768px)"
-              width={709}
-              height={457}
+              width={544}
+              height={350.65}
             />
             <img
-              src="./images/hero.png"
+              src="./images/hero.webp"
               alt="Just Movie Dashboard"
-              width={939}
-              height={504}
+              width={552}
+              height={355.667}
+              rel="preload"
             />
           </picture>
         </div>
