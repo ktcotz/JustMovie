@@ -31,12 +31,14 @@ export const Category = ({
     <>
       <div className="relative overflow-hidden rounded-md transition-all hover:rotate-1">
         <CustomLink to={`/dashboard/${type}/${id}`}>
-          <div
-            className={`${inside ? "opacity-35" : "opacity-100"} h-[281px] w-[500px] bg-cover`}
-            style={{ backgroundImage: `url(${image})` }}
-          >
-            &nbsp;
-          </div>
+          <img
+            width={500}
+            height={281}
+            alt={title}
+            src={image}
+            className={`${inside ? "opacity-35" : "opacity-100"}`}
+          />
+
           {inside && (
             <div className="absolute bottom-2 left-2 md:bottom-4 md:left-4">
               <MovieDescription description={description} />

@@ -19,7 +19,7 @@ export const MainNavigationItem = ({
   const matches = useMediaQuery("(max-width:678px)");
 
   return (
-    <>
+    <li>
       <CustomLink
         type="nav"
         to={path}
@@ -37,6 +37,6 @@ export const MainNavigationItem = ({
         />
       </CustomLink>
       <Tooltip id={title} style={{ zIndex: 9999 }} />
-    </>
+    </li>
   );
 };
