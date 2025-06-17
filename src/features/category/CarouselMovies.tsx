@@ -77,6 +77,8 @@ export const CarouselMovies = () => {
         sliderClass=""
         slidesToSlide={1}
         swipeable
+        itemAriaLabel=""
+  
       >
         {trendingMovies?.results.map((movie) => (
           <Category key={movie.id} type="movie" {...movie} />

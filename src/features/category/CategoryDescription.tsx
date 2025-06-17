@@ -33,7 +33,7 @@ export const MovieDescription = ({
           <span>{media_type}</span>
         </li>
         <li className="h-1 w-1 rounded-full bg-slate-500">&nbsp;</li>
-        <p>{t("movies.who")}</p>
+        <li>{t("movies.who")}</li>
       </ul>
       <h2 className="text-xl lg:text-2xl">{title || original_name}</h2>
     </>

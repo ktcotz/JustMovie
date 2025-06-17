@@ -7,7 +7,7 @@ type LogoProps = {
 
 export const Logo = ({ shouldTextBeVisible = true }: LogoProps) => {
   return (
-    <CustomLink to={RouterRoutes.HOME} type="logo">
+    <CustomLink to={RouterRoutes.HOME} type="logo" aria-label="Just Movie">
       <img
         src="/images/logo.svg"
         alt=""
