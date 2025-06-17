@@ -39,6 +39,7 @@ export const Hero = ({ children }: HeroProps) => {
               media="(max-width:768px)"
               width={544}
               height={350.65}
+              rel="preload"
             />
             <img
               src="./images/hero.webp"
@@ -46,6 +47,7 @@ export const Hero = ({ children }: HeroProps) => {
               width={552}
               height={355.667}
               rel="preload"
+              fetchPriority="high"
             />
           </picture>
         </div>
