@@ -35,7 +35,7 @@ export const DefaultAvatars = ({ onSetPreview }: DefaultAvatarsProps) => {
                   alt={avatar.name}
                   width={48}
                   height={48}
-                  className="h-12 w-12 rounded-full border-2 border-slate-50"
+                  className="h-12 w-12 rounded-full border-2 border-slate-50 object-cover"
                 />
               </Button>
             );

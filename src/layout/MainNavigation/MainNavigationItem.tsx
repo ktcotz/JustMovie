@@ -31,8 +31,8 @@ export const MainNavigationItem = ({
         <img
           src={icon}
           alt=""
-          width={16}
-          height={16}
+          width={24}
+          height={24}
           className="hover:brightness-101 hover:contrast-102 transition-all hover:hue-rotate-[307deg] hover:invert hover:saturate-0 hover:sepia-0"
         />
       </CustomLink>

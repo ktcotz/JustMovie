@@ -34,7 +34,7 @@ export const Category = ({
           <img
             width={500}
             height={281}
-            alt={title}
+            alt={title ?? `${type} - ${original_name}`}
             src={image}
             className={`${inside ? "opacity-35" : "opacity-100"}`}
           />

@@ -25,7 +25,7 @@ export const UserChangeAvatar = () => {
       avatarFile: updateAvatar,
       bucket_default: preview?.startsWith(supabaseUrl) ? preview : "",
     });
-    setPreview
+    setPreview;
   };
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -53,7 +53,7 @@ export const UserChangeAvatar = () => {
             alt="User avatar"
             width={48}
             height={48}
-            className="h-12 w-12 rounded-full border-2 border-slate-50"
+            className="h-12 w-12 rounded-full border-2 border-slate-50 object-cover"
           />
         </aside>
       </section>
