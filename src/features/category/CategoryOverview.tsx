@@ -40,13 +40,13 @@ export const CategoryOverview = () => {
   return (
     <Wrapper>
       <div className="grid gap-8 md:grid-cols-2">
-        <div
-          className={`relative h-[200px] w-full justify-self-center rounded-md bg-cover bg-center sm:h-[350px] sm:w-3/5 md:h-[530px] md:w-full lg:w-4/5`}
-          style={{ backgroundImage: `url(${image})` }}
-        >
-          &nbsp;
-        </div>
-
+        <img
+          src={image}
+          alt={category.original_name ?? category.title}
+          width={339}
+          height={530}
+          className="h-[200px] w-full justify-self-center rounded-md object-cover md:h-[530px]"
+        />
         <div>
           <h1 className="mb-3 text-center text-3xl md:text-left md:text-5xl">
             {category.title ||
